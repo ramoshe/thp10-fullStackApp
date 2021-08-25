@@ -11,10 +11,11 @@ const CourseDetail = () => {
     useEffect(() => {
         axios.get(`http://localhost:5000/api/courses/${id}`)
             .then(response => {
-                console.log(response.data.course);
                 setCourse(response.data.course);
             });
     }, []);
+    
+    console.log(course);
     
     return (
         <main>
