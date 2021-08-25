@@ -1,9 +1,20 @@
 # FSJS Project 10 - Full Stack App with React and a REST API
 
 ## How To
-1. Download files
-2. In the console, run `npm install`
-3. In the console, run `npm start`
+1. Download all the project files
+2. In the console, navigate to the `api` directory and run `npm install`
+3. In the console, navigate to the `client` directory and run `npm start`
+4. In your browser, go to http://localhost:3000/
+
+## Using Git Subtree for the API
+The API contained in the `api` folder is another repo that has been added to this repo as a subtree.
+You can see the original API repo here: 
+
+If you want to pull in new commits from the subtree, run this command:
+`git subtree pull --prefix api https://github.com/ramoshe/thp9-RESTAPI.git main --squash`
+
+If you make any chages in the `api` directory they will be stored in this repo's logs only. In order to update the subtree remote repo, run this command:
+`git subtree push --prefix api https://github.com/ramoshe/thp9-RESTAPI.git main --squash`
 
 ## Project Description
 *(from Treehouse)*
