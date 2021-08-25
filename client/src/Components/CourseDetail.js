@@ -5,6 +5,8 @@ import axios from 'axios';
 const CourseDetail = () => {
     
     const id = 1;
+    // let pKey = 0;
+    // let liKey = 0;
     
     const [ course, setCourse ] = useState([]);
 
@@ -36,7 +38,7 @@ const CourseDetail = () => {
                             <h4 className="course--name">{course.title}</h4>
                             {/* <p>By {course.user.firstName} {course.user.lastName}</p> */}
 
-                            {/* {course.description.split('\n').map(p => <p>{p}</p> )} */}
+                            {/* {course.description.split('\n').map(p => <p key={pKey+=1}>{p}</p> )} */}
                         </div>
                         <div>
                             <h3 className="course--detail--title">Estimated Time</h3>
@@ -44,7 +46,8 @@ const CourseDetail = () => {
 
                             <h3 className="course--detail--title">Materials Needed</h3>
                             <ul className="course--detail--list">
-                                {/* {course.materialsNeeded.split('\n').map(li => <li>{li}</li> )} */}
+                                {/* {course.materialsNeeded.substring(2).split('\n*')
+                                    .map(li => <li key={liKey+=1}>{li}</li> )} */}
                             </ul>
                         </div>
                     </div>
