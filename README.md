@@ -1,5 +1,17 @@
 # FSJS Project 10 - Full Stack App with React and a REST API
 
+## To Do List
+ - [] Add support for user authentication (step 7)
+ - [] Finish building Course components (step 5)
+ - [] Add react-markdown for text formatting (step 11)
+ - [] Configure protected routes (step 8)
+ - [] Restrict access to updating and deleting courses (step 9)
+ - [] Display validation errors (step 10)
+ - [] Add comments
+ - [] EC: Error components
+ - [] EC: save auth user in cookie
+ - [] EC: redirect to prev page after signin
+
 ## How To
 1. Download all the project files
 2. In the console, navigate to the `api` directory and run `npm install`
