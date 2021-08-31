@@ -7,7 +7,7 @@ const UserSignUp = () => {
 
     let history = useHistory();
 
-    const { data } = useContext(Context);
+    const { data, actions } = useContext(Context);
 
     const [ userValues, setUserValues ] = useState({
         firstName: '',
@@ -34,7 +34,8 @@ const UserSignUp = () => {
                 if (errors.length) {
                     setUserValues( { errors } );
                 } else {
-                    // TODO sign in user
+                    actions.signIn(emailAddress, password)
+                        .then(() => history.push('/'));
                     console.log(`${firstName} ${lastName} is successfully signed up and authenticated`);
                 }
             }).catch( err => {
