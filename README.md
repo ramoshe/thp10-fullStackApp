@@ -1,7 +1,7 @@
 # FSJS Project 10 - Full Stack App with React and a REST API
 
 ## To Do List
-- [ ] Add support for user authentication (step 7)
+- [x] Add support for user authentication (step 7)
 - [ ] Finish building Course components (step 5)
 - [ ] Add react-markdown for text formatting (step 11)
 - [ ] Configure protected routes (step 8)

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Data from './Data';
+import Cookies from 'js-cookie';
 
 /**
  * This file sets up the Context to allow data to pass
@@ -9,19 +10,26 @@ export const Context = React.createContext();
 
 export const Provider = (props) => {
 
-    let [ authenticatedUser, setAuthUser ] = useState();
+    const cookie = Cookies.get('authenticatedUser');
+
+    let [ authenticatedUser, setAuthUser ] = useState(
+        cookie ? JSON.parse(cookie) : null
+    );
+
     const [ data ] = useState(new Data());
 
     const signIn = async (emailAddress, password) => {
         const user = await data.getUser(emailAddress, password);
         if (user !== null) {
             setAuthUser(user);
+            Cookies.set('authenticatedUser', JSON.stringify(user), {expires: 1});
         }
         return user;
     };
 
     const signOut = () => {
         setAuthUser(null);
+        Cookies.remove('authenticatedUser');
     };
 
     return (
