@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Context } from '../Context';
 import { UserForm } from './UserForm';
@@ -6,6 +6,7 @@ import { UserForm } from './UserForm';
 const UserSignUp = () => {
 
     let history = useHistory();
+
     const { data } = useContext(Context);
 
     const [ userValues, setUserValues ] = useState({
@@ -16,6 +17,7 @@ const UserSignUp = () => {
         errors: []
     });
 
+    // Destructure user values for later use
     const { firstName, lastName, emailAddress, password, errors } = userValues;
 
     const change = (event) => {
@@ -25,14 +27,10 @@ const UserSignUp = () => {
         }));
     };
     
-    const submit = (event) => {
-        event.preventDefault();
-
+    const submit = () => {
         const user = { firstName, lastName, emailAddress, password };
-
         data.createUser(user)
             .then( errors => {
-                console.log(errors);
                 if (errors.length) {
                     setUserValues( { errors } );
                 } else {
@@ -43,8 +41,6 @@ const UserSignUp = () => {
                 console.log(err);
                 // TODO add an error route with `history.push('/error')`
             });
-
-        //history.push('/');
     };
 
     const cancel = () => {

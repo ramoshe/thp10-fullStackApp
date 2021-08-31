@@ -9,9 +9,17 @@ export const Context = React.createContext();
 
 export const Provider = (props) => {
     
+    const data = new Data();
+
+    const signIn = async (emailAddress, password) => {
+        const user = await data.getUser(emailAddress, password);
+        return user;
+    };
+
     return (
         <Context.Provider value={{ 
-            data: new Data() 
+            data,
+            actions: { signIn }
         }}>
             {props.children}
         </Context.Provider>
