@@ -1,6 +1,5 @@
-import { useHistory } from 'react';
 
-export default (props) => {
+export const UserForm = (props) => {
     
     const {
         cancel,
@@ -12,12 +11,12 @@ export default (props) => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        submit();
+        submit(event);
     }
 
     function handleCancel(event) {
         event.preventDefault();
-        cancel();
+        cancel(event);
     }
 
     return (
@@ -37,13 +36,11 @@ const ErrorsDisplay = ({ errors }) => {
 
     if (errors.length) {
         errorsDisplay = (
-            <div>
-                <h2 className="validation--errors--label">Validation errors</h2>
-                <div className="validation-errors">
-                    <ul>
-                        {errors.map((error, i) => <li key={i}>{error}</li>)}
-                    </ul>
-                </div>
+            <div className="validation--errors">
+                <h3>Validation errors</h3>
+                <ul>
+                    {errors.map((error, i) => <li key={i}>{error}</li>)}
+                </ul>
             </div>
         );
     }

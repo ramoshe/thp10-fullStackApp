@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Context } from '../Context';
-import UserForm from './UserForm';
+import { UserForm } from './UserForm';
 
 const UserSignUp = () => {
 
@@ -16,13 +16,7 @@ const UserSignUp = () => {
         errors: []
     });
 
-    const { 
-        firstName,
-        lastName,
-        emailAddress,
-        password,
-        errors 
-    } = allValues;
+    const { firstName, lastName, emailAddress, password, errors } = userValues;
 
     const change = (event) => {
         setUserValues( prevValues => ({ 
@@ -33,7 +27,24 @@ const UserSignUp = () => {
     
     const submit = (event) => {
         event.preventDefault();
-        history.push('/');
+
+        const user = { firstName, lastName, emailAddress, password };
+
+        data.createUser(user)
+            .then( errors => {
+                console.log(errors);
+                if (errors.length) {
+                    setUserValues( { errors } );
+                } else {
+                    // TODO sign in user
+                    console.log(`${firstName} ${lastName} is successfully signed up and authenticated`);
+                }
+            }).catch( err => {
+                console.log(err);
+                // TODO add an error route with `history.push('/error')`
+            });
+
+        //history.push('/');
     };
 
     const cancel = () => {
@@ -53,19 +64,19 @@ const UserSignUp = () => {
                         <>
                             <label htmlFor="firstName">First Name</label>
                             <input id="firstName" name="firstName" type="text"
-                                value={firstName} onChange={change} />
+                                onChange={change} />
                             
                             <label htmlFor="lastName">Last Name</label>
                             <input id="lastName" name="lastName" type="text"
-                                value={lastName} onChange={change} />
+                                onChange={change} />
                             
                             <label htmlFor="emailAddress">Email Address</label>
                             <input id="emailAddress" name="emailAddress" type="email"
-                                value={emailAddress} onChange={change} />
+                                onChange={change} />
                             
                             <label htmlFor="password">Password</label>
                             <input id="password" name="password" type="password"
-                                value={password} onChange={change} />
+                                onChange={change} />
                         </>
                     )} />
                 <p>Already have a user account? Click here to <Link to="/signin">sign in</Link>!</p>

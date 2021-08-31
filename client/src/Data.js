@@ -9,7 +9,7 @@ export default class Data {
         const options = {
             method,
             headers: {
-                'Content-Type': 'aplication/json; charset=utf-8'
+                'Content-Type': 'application/json; charset=utf-8'
             }
         };
 
@@ -24,7 +24,16 @@ export default class Data {
         // TODO
     }
 
-    async createUser() {
-        // TODO
+    async createUser(user) {
+        const response = await this.api('/users', 'POST', user);
+        if (response.status === 201) {
+            return [];
+        } else if (response.status === 400) {
+            return response.json().then(data => {
+                return data.errors;
+            });
+        } else {
+            throw new Error();
+        }
     }
 }
