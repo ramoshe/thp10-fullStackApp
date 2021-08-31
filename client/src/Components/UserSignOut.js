@@ -1,13 +1,13 @@
-import { useHistory } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
+import { Context } from '../Context';
 
 const UserSignOut = () => {
-
-    let history = useHistory();
-
-    // TODO - add code that resets (signs out) the authenticatedUser
-
-    history.push('/');
-    return null;
+    const { actions } = useContext(Context);
+    useEffect(() => actions.signOut());
+    return (
+        <Redirect to="/" />
+    );
 };
 
 export default UserSignOut;

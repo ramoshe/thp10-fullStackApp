@@ -9,7 +9,7 @@ const Courses = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/api/courses')
             .then(response => {
-                setCourses(response.data.courses);
+                setCourses(response.data);
             });
     }, []);
   
