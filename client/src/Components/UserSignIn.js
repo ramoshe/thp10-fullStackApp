@@ -18,7 +18,8 @@ const UserSignIn = () => {
     });
 
     // Destructure user variables for later use
-    const { firstName, lastName, emailAddress, password, errors } = userValues;
+    const { //firstName, lastName, 
+        emailAddress, password, errors } = userValues;
 
     const change = (event) => {
         setUserValues( prevValues => ({ 

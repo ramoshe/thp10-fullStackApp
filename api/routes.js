@@ -18,7 +18,7 @@ router.get('/users', authenticateUser, asyncHandler(async(req, res) => {
         where: { id: req.currentUser.id },
         attributes: { exclude: ['password', 'createdAt', 'updatedAt'] }
     });
-    res.json({ user });
+    res.json(user);
 }));
 
 // Route that will CREATE a new user.
@@ -34,7 +34,7 @@ router.post('/users', asyncHandler(async (req, res) => {
         console.log('error name: '+ error.name);
         if (error.name === 'SequelizeUniqueConstraintError' || error.name === 'SequelizeValidationError') {
             const errors = error.errors.map(err => err.message);
-            res.status(400).json({ errors });   
+            res.status(400).json(errors);   
         } else {
             throw error;
         }
@@ -54,7 +54,7 @@ router.get('/courses', asyncHandler(async(req, res) => {
             attributes: { exclude: ['password', 'createdAt', 'updatedAt'] }
         } ]
     });
-    res.json({ courses });
+    res.json(courses);
 }));
 
 // Route that will READ (show) the corresponding course
@@ -68,7 +68,7 @@ router.get('/courses/:id', asyncHandler(async(req, res) => {
             attributes: { exclude: ['password', 'createdAt', 'updatedAt'] } 
         } ]
     });
-    res.json({ course });
+    res.json(course);
 }));
 
 // Route that will CREATE a new course
@@ -79,7 +79,7 @@ router.post('/courses', authenticateUser, asyncHandler(async(req, res) => {
     } catch (error) {
         if (error.name === 'SequelizeValidationError') {
             const errors = error.errors.map(err => err.message);
-            res.status(400).json({ errors });   
+            res.status(400).json(errors);   
         } else {
             throw error;
         }
@@ -109,7 +109,7 @@ router.put('/courses/:id', authenticateUser, asyncHandler(async(req, res) => {
     } catch (error) {
         if (error.name === 'SequelizeValidationError') {
             const errors = error.errors.map(err => err.message);
-            res.status(400).json({ errors });   
+            res.status(400).json(errors);   
         } else {
             throw error;
         }

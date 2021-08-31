@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Data from './Data';
 
 /**
@@ -8,16 +8,21 @@ import Data from './Data';
 export const Context = React.createContext();
 
 export const Provider = (props) => {
-    
-    const data = new Data();
+
+    let [ authenticatedUser, setAuthUser ] = useState();
+    const [ data ] = useState(new Data());
 
     const signIn = async (emailAddress, password) => {
         const user = await data.getUser(emailAddress, password);
+        if (user !== null) {
+            setAuthUser(user);
+        }
         return user;
     };
 
     return (
         <Context.Provider value={{ 
+            authenticatedUser,
             data,
             actions: { signIn }
         }}>

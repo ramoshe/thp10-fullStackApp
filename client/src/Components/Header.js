@@ -1,7 +1,15 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Context } from '../Context';
 
 const Header = () => {
-    const authenticatedUser = null;
+    const { authenticatedUser } = useContext(Context);
+    
+    let authUser = '';
+    if (authenticatedUser) {
+        authUser = `${authenticatedUser.firstName} ${authenticatedUser.lastName}`;
+    }
+    
     return (
         <header>
             <div className="wrap header--flex">
@@ -9,8 +17,8 @@ const Header = () => {
                 <nav>
                     {authenticatedUser ? 
                         <ul className="header--signedin">
-                            <li>Welcome, {authenticatedUser.name}!</li>
-                            <li><Link to="sign-out.html">Sign Out</Link></li> 
+                            <li>Welcome, {authUser}!</li>
+                            <li><Link to="/signout">Sign Out</Link></li> 
                         </ul> 
                         : 
                         <ul className="header--signedout">
