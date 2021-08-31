@@ -7,11 +7,15 @@ import reportWebVitals from './reportWebVitals';
 import './styles/reset.css';
 import './styles/global.css';
 
+import { Provider } from './Context';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Provider>
+            <App />
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

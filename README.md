@@ -8,6 +8,7 @@
 - [ ] Restrict access to updating and deleting courses (step 9)
 - [ ] Display validation errors (step 10)
 - [ ] Add comments
+- [ ] Customize styles, replace logo.svg
 - [ ] EC: Error components
 - [ ] EC: save auth user in cookie
 - [ ] EC: redirect to prev page after signin
