@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
+import PrivateRoute from './PrivateRoute';
+
 import Header from './Components/Header';
 import Courses from './Components/Courses';
 import UserSignIn from './Components/UserSignIn';
@@ -17,9 +19,9 @@ function App() {
             <Header />
             <Switch>
                 <Route exact path="/" component={Courses} />
-                <Route path="/courses/create" component={CreateCourse} />
-                <Route path="/courses/:id/update" component={UpdateCourse} />
-                <Route path="/courses/:id/delete" component={DeleteCourse} />
+                <PrivateRoute path="/courses/create" component={CreateCourse} />
+                <PrivateRoute path="/courses/:id/update" component={UpdateCourse} />
+                <PrivateRoute path="/courses/:id/delete" component={DeleteCourse} />
                 <Route path="/courses/:id" component={CourseDetail} /> 
                 <Route path="/signin" component={UserSignIn} />
                 <Route path="/signup" component={UserSignUp} />

@@ -7,7 +7,7 @@ const CourseDetail = () => {
     
     const { id } = useParams();
     const [ course, setCourse ] = useState([]);
-    const { data } = useContext(Context);
+    const { data, authenticatedUser } = useContext(Context);
 
     useEffect(() => {
         data.getCourse(id)
@@ -18,8 +18,12 @@ const CourseDetail = () => {
         <main>
             <div className="actions--bar">
                 <div className="wrap">
-                    <Link className="button" to={`/courses/${course.id}/update`}>Update Course</Link>
-                    <Link className="button" to={`/courses/${course.id}/delete`}>Delete Course</Link>
+                    {authenticatedUser && authenticatedUser.id === course.userId ?
+                        <>
+                        <Link className="button" to={`/courses/${course.id}/update`}>Update Course</Link>
+                        <Link className="button" to={`/courses/${course.id}/delete`}>Delete Course</Link>
+                        </>
+                        : null } 
                     <Link className="button button-secondary" to="/">Return to List</Link>
                 </div>
             </div>

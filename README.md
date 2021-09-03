@@ -4,14 +4,14 @@
 - [x] Add support for user authentication (step 7)
 - [x] Finish building Course components (step 5)
 - [x] Add react-markdown for text formatting (step 11)
-- [ ] Configure protected routes (step 8)
-- [ ] Restrict access to updating and deleting courses (step 9)
+- [x] Configure protected routes (step 8)
+- [x] Restrict access to updating and deleting courses (step 9)
 - [ ] Display validation errors (step 10)
-- [ ] Add comments
-- [ ] Customize styles, replace logo.svg
 - [ ] EC: Error components
 - [ ] EC: save auth user in cookie
 - [ ] EC: redirect to prev page after signin
+- [ ] Add comments
+- [ ] Customize styles, replace logo.svg
 
 ## How To
 1. Download all the project files
