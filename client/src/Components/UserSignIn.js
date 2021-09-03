@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Context } from '../Context';
-import { UserForm } from './UserForm';
+import Form from './Form';
 
 const UserSignIn = () => {
 
@@ -34,7 +34,7 @@ const UserSignIn = () => {
                 if (user === null) {
                     setUserValues({ errors: [ 'Sign-in was unsuccessful' ] });
                 } else {
-                    //history.push('/');
+                    history.push('/');
                     console.log(`SUCCESS! ${emailAddress} is now signed in!`);
                 }
             }).catch( err => {
@@ -51,7 +51,7 @@ const UserSignIn = () => {
         <main>
             <div className="form--centered">
                 <h2>Sign In</h2>
-                <UserForm
+                <Form
                     cancel={cancel}
                     errors={errors}
                     submit={submit}
@@ -59,11 +59,17 @@ const UserSignIn = () => {
                     elements={ () => (
                         <>
                             <label htmlFor="emailAddress">Email Address</label>
-                            <input id="emailAddress" name="emailAddress" type="email"
+                            <input 
+                                id="emailAddress" 
+                                name="emailAddress" 
+                                type="email"
                                 onChange={change} />
 
                             <label htmlFor="password">Password</label>
-                            <input id="password" name="password" type="password"
+                            <input 
+                                id="password" 
+                                name="password" 
+                                type="password"
                                 onChange={change} />
                         </>
                     )} />

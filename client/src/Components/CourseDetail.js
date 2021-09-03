@@ -1,24 +1,20 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
 
 const CourseDetail = () => {
     
-    const id = 1;
-    // let pKey = 0;
-    // let liKey = 0;
-    
+    const { id } = useParams();
     const [ course, setCourse ] = useState([]);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/api/courses/${id}`)
             .then(response => {
-                setCourse(response.data.course);
+                setCourse(response.data);
             });
-    }, []);
-    
-    console.log(course);
-    
+    }, [ id ]);
+        
     return (
         <main>
             <div className="actions--bar">
@@ -36,9 +32,10 @@ const CourseDetail = () => {
                         <div>
                             <h3 className="course--detail--title">Course</h3>
                             <h4 className="course--name">{course.title}</h4>
-                            {/* <p>By {course.user.firstName} {course.user.lastName}</p> */}
-
-                            {/* {course.description.split('\n').map(p => <p key={pKey+=1}>{p}</p> )} */}
+                            {/* {console.log(course.user)} */}
+                            <p>By Joe Smith {/* course.user.firstName} {course.user.lastName */}</p>
+                            
+                            <ReactMarkdown>{course.description}</ReactMarkdown>
                         </div>
                         <div>
                             <h3 className="course--detail--title">Estimated Time</h3>
@@ -46,8 +43,7 @@ const CourseDetail = () => {
 
                             <h3 className="course--detail--title">Materials Needed</h3>
                             <ul className="course--detail--list">
-                                {/* {course.materialsNeeded.substring(2).split('\n*')
-                                    .map(li => <li key={liKey+=1}>{li}</li> )} */}
+                                <ReactMarkdown>{course.materialsNeeded}</ReactMarkdown>
                             </ul>
                         </div>
                     </div>

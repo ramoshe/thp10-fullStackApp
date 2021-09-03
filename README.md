@@ -3,7 +3,7 @@
 ## To Do List
 - [x] Add support for user authentication (step 7)
 - [ ] Finish building Course components (step 5)
-- [ ] Add react-markdown for text formatting (step 11)
+- [x] Add react-markdown for text formatting (step 11)
 - [ ] Configure protected routes (step 8)
 - [ ] Restrict access to updating and deleting courses (step 9)
 - [ ] Display validation errors (step 10)

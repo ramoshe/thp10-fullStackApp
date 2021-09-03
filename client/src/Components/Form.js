@@ -1,5 +1,5 @@
 
-export const UserForm = (props) => {
+const Form = (props) => {
     
     const {
         cancel,
@@ -31,7 +31,7 @@ export const UserForm = (props) => {
     );
 }
 
-const ErrorsDisplay = ({ errors }) => {
+const ErrorsDisplay = (errors) => {
     let errorsDisplay = null;
 
     if (errors.length) {
@@ -47,3 +47,5 @@ const ErrorsDisplay = ({ errors }) => {
 
     return errorsDisplay;
 }
+
+export default Form;

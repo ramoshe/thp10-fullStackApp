@@ -12,7 +12,7 @@ export const Provider = (props) => {
 
     const cookie = Cookies.get('authenticatedUser');
 
-    let [ authenticatedUser, setAuthUser ] = useState(
+    const [ authenticatedUser, setAuthUser ] = useState(
         cookie ? JSON.parse(cookie) : null
     );
 
@@ -21,6 +21,8 @@ export const Provider = (props) => {
     const signIn = async (emailAddress, password) => {
         const user = await data.getUser(emailAddress, password);
         if (user !== null) {
+            user.password = password;
+            console.log(user);
             setAuthUser(user);
             Cookies.set('authenticatedUser', JSON.stringify(user), {expires: 1});
         }
