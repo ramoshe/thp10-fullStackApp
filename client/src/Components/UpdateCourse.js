@@ -2,7 +2,6 @@ import { useState, useContext, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Context } from '../Context';
 import Form from './Form';
-import axios from 'axios';
 
 const UpdateCourse = () => {
     
@@ -12,29 +11,26 @@ const UpdateCourse = () => {
     const [ course, setCourse ] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/courses/${id}`)
-            .then(response => {
-                setCourse(response.data);
-            });
-    }, [ id ]);
+        data.getCourse(id)
+            .then(course => setCourse(course));
+    }, [ data, id ]);
 
     const change = (event) => {
-        console.log(course);
-        setCourse({ [event.target.name]: event.target.value });
-        console.log(course);
+        setCourse( prevValues => ({ 
+            ...prevValues, 
+            [event.target.name]: event.target.value 
+        }));
     };
 
     const submit = () => {
-        console.log(course);
-        console.log(authenticatedUser);
-        data.api(`/courses/${course.id}`, 'PUT', course, true, { emailAddress: authenticatedUser.emailAddress, password: authenticatedUser.password })
-            .then( response => {
-                console.log(response.status)
-                if (response.errors.length) {
-                    console.log(response.errors);
-                    setCourse({errors: response.errors});
+        course.userId = authenticatedUser.id;
+        data.updateCourse(id, course, authenticatedUser.emailAddress, authenticatedUser.password)
+            .then( errors => {
+                if (errors.length) {
+                    console.log(errors);
+                    setCourse({errors});
                 } else {
-                     history.push(`/courses/${course.id}`);
+                   history.push(`/courses/${id}`);
                 }
             }).catch( err => {
                 console.log(err);

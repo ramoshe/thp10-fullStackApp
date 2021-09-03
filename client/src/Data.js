@@ -51,12 +51,12 @@ export default class Data {
 
     async getCourse(id) {
         const response = await this.api(`/courses/${id}`, 'GET');
-        if (response.status === 201) {
+        if (response.status === 200) {
             return response.json().then(data => data).catch(err => console.log(err));
         } else if (response.status === 400) {
             return null;
-        // } else {
-        //     throw new Error();
+        } else {
+            throw new Error();
         }
     }
 
@@ -73,27 +73,27 @@ export default class Data {
         }
     }
 
-    async updateCourse(course, emailAddress, password) {
-        const response = await this.api(`/courses/${course.id}`, 'PUT', course, true, { emailAddress, password });
+    async updateCourse(id, course, emailAddress, password) {
+        const response = await this.api(`/courses/${id}`, 'PUT', course, true, { emailAddress, password });
         if (response.status === 204) {
             return [];
         } else if (response.status === 400) {
             return response.json().then(data => {
                 return data.errors;
-            });
+            }).catch(err => console.log(err));
         } else {
             throw new Error();
         }
     }
 
-    async deleteCourse(course, emailAddress, password) {
-        const response = await this.api(`/courses/${course.id}`, 'DELETE', course, true, { emailAddress, password });
+    async deleteCourse(id, emailAddress, password) {
+        const response = await this.api(`/courses/${id}`, 'DELETE', null, true, { emailAddress, password });
         if (response.status === 204) {
             return [];
         } else if (response.status === 400) {
             return response.json().then(data => {
                 return data.errors;
-            });
+            }).catch(err => console.log(err));
         } else {
             throw new Error();
         }

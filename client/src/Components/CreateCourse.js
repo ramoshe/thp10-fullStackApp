@@ -19,15 +19,13 @@ const CreateCourse = () => {
 
     const submit = () => {
         course.userId = authenticatedUser.id;
-        console.log(course);
-        console.log(authenticatedUser);
         data.createCourse(course, authenticatedUser.emailAddress, authenticatedUser.password)
             .then( errors => {
                 if (errors.length) {
                     console.log(errors);
                     setCourse({errors});
                 } else {
-                   history.push(`/courses/${course.id}`);
+                   history.push(`/`);
                 }
             }).catch( err => {
                 console.log(err);
@@ -36,7 +34,7 @@ const CreateCourse = () => {
     };
 
     const cancel = () => {
-        history.push(`/courses/${course.id}`);
+        history.push('/');
     };
 
     return (

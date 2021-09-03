@@ -1,19 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import axios from 'axios';
+import { Context } from '../Context';
 import ReactMarkdown from 'react-markdown';
 
 const CourseDetail = () => {
     
     const { id } = useParams();
     const [ course, setCourse ] = useState([]);
+    const { data } = useContext(Context);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/courses/${id}`)
-            .then(response => {
-                setCourse(response.data);
-            });
-    }, [ id ]);
+        data.getCourse(id)
+            .then(course => setCourse(course));
+    }, [ data, id ]);
         
     return (
         <main>

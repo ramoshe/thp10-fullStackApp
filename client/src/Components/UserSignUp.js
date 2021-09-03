@@ -31,9 +31,9 @@ const UserSignUp = () => {
         const user = { firstName, lastName, emailAddress, password };
         data.createUser(user)
             .then( errors => {
+                console.log(errors);
                 if (errors.length) {
-                    console.log(errors);
-                    setUserValues({errors});
+                    setUserValues(prevValues => ({ ...prevValues, errors}));
                 } else {
                     actions.signIn(emailAddress, password)
                         .then(() => history.push('/'));

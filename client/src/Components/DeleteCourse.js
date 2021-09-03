@@ -1,23 +1,18 @@
 import { useContext, useEffect } from 'react';
 import { Context } from '../Context';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 
 const DeleteCourse = () => {
     const { data, authenticatedUser } = useContext(Context);
     const { id } = useParams();
-    let history = useHistory();
 
     useEffect(() => {
-        const course = data.getCourse(id);
-        console.log(authenticatedUser);
-        console.log(course);
-        data.deleteCourse(course, authenticatedUser.emailAddress, authenticatedUser.password);
-        history.push('/');
+        data.deleteCourse(id, authenticatedUser.emailAddress, authenticatedUser.password);
     });
     
-    // return (
-    //     history.push("/");
-    // );
+    return (
+        <Redirect to="/" />
+    );
 };
 
 export default DeleteCourse;
