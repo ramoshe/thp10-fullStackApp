@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { Context } from './Context';
 
-export default ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
     const { authenticatedUser } = useContext(Context);
     return (
         <Route
@@ -19,3 +19,5 @@ export default ({ component: Component, ...rest }) => {
         />
   );
 };
+
+export default PrivateRoute;

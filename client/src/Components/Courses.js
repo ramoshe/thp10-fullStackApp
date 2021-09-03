@@ -1,17 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { Context } from '../Context';
 
 const Courses = () => {
     
     const [ courses, setCourses ] = useState([]);
+    const { data } = useContext(Context);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/courses')
-            .then(response => {
-                setCourses(response.data);
-            });
-    }, []);
+        data.getAllCourses()
+            .then(courses => setCourses(courses));
+    }, [ data ]);
   
     return (
         <main>

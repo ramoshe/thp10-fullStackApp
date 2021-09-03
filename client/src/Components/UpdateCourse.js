@@ -64,8 +64,7 @@ const UpdateCourse = () => {
                                     value={title} 
                                     onChange={change} />
 
-                                <p>By Joe Smith</p>
-                                {/* <p>By {user.firstName} {user.lastName}</p> */}
+                                <p>By {authenticatedUser.firstName} {authenticatedUser.lastName}</p>
 
                                 <label htmlFor="description">Course Description</label>
                                 <textarea 

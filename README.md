@@ -1,17 +1,16 @@
 # FSJS Project 10 - Full Stack App with React and a REST API
 
 ## To Do List
-- [x] Add support for user authentication (step 7)
-- [x] Finish building Course components (step 5)
-- [x] Add react-markdown for text formatting (step 11)
-- [x] Configure protected routes (step 8)
-- [x] Restrict access to updating and deleting courses (step 9)
-- [ ] Display validation errors (step 10)
 - [ ] EC: Error components
-- [ ] EC: save auth user in cookie
+- [x] EC: save auth user in cookie
 - [ ] EC: redirect to prev page after signin
+- [ ] Add bcrypt to encode password
 - [ ] Add comments
 - [ ] Customize styles, replace logo.svg
+
+## Need Help
+- [ ] Displaying user name on CourseDetail page
+- [ ] Display validation errors (step 10)
 
 ## How To
 1. Download all the project files

@@ -12,6 +12,7 @@ import CourseDetail from './Components/CourseDetail';
 import CreateCourse from './Components/CreateCourse';
 import UpdateCourse from './Components/UpdateCourse';
 import DeleteCourse from './Components/DeleteCourse';
+import NotFound from './Components/NotFound';
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/signin" component={UserSignIn} />
                 <Route path="/signup" component={UserSignUp} />
                 <Route path="/signout" component={UserSignOut} />
+                <Route component={NotFound} />
             </Switch>
         </BrowserRouter>
     );

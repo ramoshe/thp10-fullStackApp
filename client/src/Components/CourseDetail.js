@@ -35,8 +35,13 @@ const CourseDetail = () => {
                         <div>
                             <h3 className="course--detail--title">Course</h3>
                             <h4 className="course--name">{course.title}</h4>
-                            {/* {console.log(course.user)} */}
-                            <p>By Joe Smith {/* course.user.firstName} {course.user.lastName */}</p>
+                            
+                            <p>By User Name</p>
+                            {console.log(course.user)}
+                            {/* 
+                            // ! Why is this code not working when the console.log above works fine?
+                            <p>{course.user.firstName} {course.user.lastName}</p> 
+                            */}
                             
                             <ReactMarkdown>{course.description}</ReactMarkdown>
                         </div>

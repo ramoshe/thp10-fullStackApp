@@ -56,7 +56,7 @@ const CreateCourse = () => {
                                     type="text" 
                                     onChange={change} />
 
-                                <p>By Joe Smith</p>
+                                <p>By {authenticatedUser.firstName} {authenticatedUser.lastName}</p>
 
                                 <label htmlFor="description">Course Description</label>
                                 <textarea 
