@@ -20,14 +20,15 @@
     5. Run `npm install` and then `npm start`
     6. In your browser, go to http://localhost:3000/
 
-## Using Git Subtree for the API
+## Git Subtree for the API
 The API contained in the `api` folder is another repo that has been added to this repo as a subtree.
-You can see the original API repo here: 
+You can see the original API repo here: https://github.com/ramoshe/thp9-RESTAPI
 
-If you want to pull in new commits from the subtree, run this command:
+### How to Manage Subtree
+To pull in new commits from the original repo, run this command:
 `git subtree pull --prefix api https://github.com/ramoshe/thp9-RESTAPI.git main --squash`
 
-If you make any chages in the `api` directory they will be stored in this repo's logs only. In order to update the subtree remote repo, run this command:
+Any chages in the `api` directory will be stored in this repo's logs only. In order to update the original repo, run this command:
 `git subtree push --prefix api https://github.com/ramoshe/thp9-RESTAPI.git main --squash`
 
 ## Project Description
