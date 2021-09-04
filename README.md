@@ -1,13 +1,14 @@
 # FSJS Project 10 - Full Stack App with React and a REST API
 
 ## To Do List
-- [ ] Add bcrypt to encode password
 - [ ] Add comments
 - [ ] Customize styles, replace logo.svg
+- [ ] Run through "How You'll Be Graded"
 
 ## Need Help
 - [ ] Displaying user name on CourseDetail page
 - [ ] Display validation errors (step 10)
+- [ ] Am i handling password correctly? Should I use bcrypt?
 
 ## How To
 1. Download all the project files
