@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 import { Context } from '../Context';
 import Form from './Form';
 
@@ -40,7 +40,7 @@ const UserSignUp = () => {
                 }
             }).catch( err => {
                 console.log(err);
-                // TODO add an error route with `history.push('/error')`
+                return <Redirect to="/error" />;
             });
     };
 

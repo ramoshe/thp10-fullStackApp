@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { Context } from '../Context';
 import Form from './Form';
 
@@ -29,7 +29,7 @@ const CreateCourse = () => {
                 }
             }).catch( err => {
                 console.log(err);
-                // TODO add an error route with `history.push('/error')`
+                return <Redirect to="/error" />;
             });
     };
 

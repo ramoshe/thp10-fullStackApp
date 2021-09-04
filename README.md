@@ -1,9 +1,6 @@
 # FSJS Project 10 - Full Stack App with React and a REST API
 
 ## To Do List
-- [ ] EC: Error components
-- [x] EC: save auth user in cookie
-- [ ] EC: redirect to prev page after signin
 - [ ] Add bcrypt to encode password
 - [ ] Add comments
 - [ ] Customize styles, replace logo.svg

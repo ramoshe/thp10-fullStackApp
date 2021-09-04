@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 import { Context } from '../Context';
 import Form from './Form';
 
-const UserSignIn = () => {
+const UserSignIn = (props) => {
 
     let history = useHistory();
 
@@ -34,12 +34,12 @@ const UserSignIn = () => {
                 if (user === null) {
                     setUserValues({ errors: [ 'Sign-in was unsuccessful' ] });
                 } else {
-                    history.push('/');
+                    history.goBack();
                     console.log(`SUCCESS! ${emailAddress} is now signed in!`);
                 }
             }).catch( err => {
                 console.log(err);
-                // TODO add `history.push('/error')`
+                return <Redirect to="/error" />;
             });
     };
 

@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Redirect } from 'react-router-dom';
 import { Context } from '../Context';
 import Form from './Form';
 
@@ -34,7 +34,7 @@ const UpdateCourse = () => {
                 }
             }).catch( err => {
                 console.log(err);
-                // TODO add an error route with `history.push('/error')`
+                return <Redirect to="/error" />;
             });
     };
 
@@ -44,56 +44,62 @@ const UpdateCourse = () => {
 
     const { title, description, estimatedTime, materialsNeeded } = course;
     
-    return (
-        <main>
-            <div className="wrap">
-                <h2>Update Course</h2>
-                <Form
-                    cancel={cancel}
-                    errors={course.errors}
-                    submit={submit}
-                    submitButtonText="Update Course"
-                    elements={ () => (
-                        <div className="main--flex">
-                            <div>
-                                <label htmlFor="title">Course Title</label>
-                                <input 
-                                    id="title" 
-                                    name="title" 
-                                    type="text" 
-                                    value={title} 
-                                    onChange={change} />
+    if (course == null) {
+        return <Redirect to="/notfound" />
+    } else if (authenticatedUser.id !== course.userId) {
+        return <Redirect to="/forbidden" />
+    } else {
+        return (
+            <main>
+                <div className="wrap">
+                    <h2>Update Course</h2>
+                    <Form
+                        cancel={cancel}
+                        errors={course.errors}
+                        submit={submit}
+                        submitButtonText="Update Course"
+                        elements={ () => (
+                            <div className="main--flex">
+                                <div>
+                                    <label htmlFor="title">Course Title</label>
+                                    <input 
+                                        id="title" 
+                                        name="title" 
+                                        type="text" 
+                                        value={title} 
+                                        onChange={change} />
 
-                                <p>By {authenticatedUser.firstName} {authenticatedUser.lastName}</p>
+                                    <p>By {authenticatedUser.firstName} {authenticatedUser.lastName}</p>
 
-                                <label htmlFor="description">Course Description</label>
-                                <textarea 
-                                    id="description" 
-                                    name="description" 
-                                    value={description} 
-                                    onChange={change} />
+                                    <label htmlFor="description">Course Description</label>
+                                    <textarea 
+                                        id="description" 
+                                        name="description" 
+                                        value={description} 
+                                        onChange={change} />
+                                </div>
+                                <div>
+                                    <label htmlFor="estimatedTime">Estimated Time</label>
+                                    <input 
+                                        id="estimatedTime" 
+                                        name="estimatedTime" 
+                                        type="text" 
+                                        value={estimatedTime} 
+                                        onChange={change} />
+
+                                    <label htmlFor="materialsNeeded">Materials Needed</label>
+                                    <textarea 
+                                        id="materialsNeeded" 
+                                        name="materialsNeeded" 
+                                        value={materialsNeeded} 
+                                        onChange={change} />
+                                </div>
                             </div>
-                            <div>
-                                <label htmlFor="estimatedTime">Estimated Time</label>
-                                <input 
-                                    id="estimatedTime" 
-                                    name="estimatedTime" 
-                                    type="text" 
-                                    value={estimatedTime} 
-                                    onChange={change} />
-
-                                <label htmlFor="materialsNeeded">Materials Needed</label>
-                                <textarea 
-                                    id="materialsNeeded" 
-                                    name="materialsNeeded" 
-                                    value={materialsNeeded} 
-                                    onChange={change} />
-                            </div>
-                        </div>
-                    )} />
-            </div>
-        </main>
-    );
+                        )} />
+                </div>
+            </main>
+        );
+    }
 }
 
 export default UpdateCourse;
