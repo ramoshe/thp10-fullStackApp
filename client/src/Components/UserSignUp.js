@@ -17,9 +17,6 @@ const UserSignUp = () => {
         errors: []
     });
 
-    // Destructure user values for later use
-    const { firstName, lastName, emailAddress, password, errors } = userValues;
-
     const change = (event) => {
         setUserValues( prevValues => ({ 
             ...prevValues, 
@@ -28,15 +25,16 @@ const UserSignUp = () => {
     };
     
     const submit = () => {
+        const { firstName, lastName, emailAddress, password } = userValues;
         const user = { firstName, lastName, emailAddress, password };
         data.createUser(user)
-            .then( errors => {
-                console.log(errors);
-                if (errors.length) {
-                    setUserValues(prevValues => ({ ...prevValues, errors}));
+            .then( errs => {
+                if (errs.length) {
+                    setUserValues({errors: errs});
+                    console.log(userValues);
                 } else {
                     actions.signIn(emailAddress, password)
-                        .then(() => history.push('/'));
+                        .then(() => history.goBack());
                 }
             }).catch( err => {
                 console.log(err);
@@ -48,6 +46,7 @@ const UserSignUp = () => {
         history.push('/');
     };
 
+    const { errors } = userValues;
     return (
         <main>
             <div className="form--centered">

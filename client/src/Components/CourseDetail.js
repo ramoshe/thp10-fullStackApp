@@ -39,12 +39,9 @@ const CourseDetail = () => {
                                 <h3 className="course--detail--title">Course</h3>
                                 <h4 className="course--name">{course.title}</h4>
                                 
-                                <p>By User Name</p>
+                                {/* <p>By User Name</p> */}
                                 {console.log(course.user)}
-                                {/* 
-                                // ! Why is this code not working when the console.log above works fine?
-                                <p>{course.user.firstName} {course.user.lastName}</p> 
-                                */}
+                                <p>By {course.user.firstName} {course.user.lastName}</p>
                                 
                                 <ReactMarkdown>{course.description}</ReactMarkdown>
                             </div>
