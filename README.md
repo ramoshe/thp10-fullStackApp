@@ -32,7 +32,7 @@ Any chages in the `api` directory will be stored in this repo's logs only. In or
 `git subtree push --prefix api https://github.com/ramoshe/thp9-RESTAPI.git main --squash`
 
 ## Project Description
-*(from Treehouse)*
+*From Treehouse*
 
 In your final project, you’ll use React to create a client for your existing school database REST API (that you created in a previous project). The full stack application will provide a way for users to administer a school database containing information about courses: users can interact with the database by retrieving a list of courses, viewing detail for a specific course, as well as creating, updating and deleting courses in the database.
 
