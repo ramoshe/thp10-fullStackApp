@@ -31,7 +31,6 @@ const UserSignUp = () => {
             .then( errs => {
                 if (errs.length) {
                     setUserValues({errors: errs});
-                    console.log(userValues);
                 } else {
                     actions.signIn(emailAddress, password)
                         .then(() => history.goBack());

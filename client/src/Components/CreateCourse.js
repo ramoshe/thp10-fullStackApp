@@ -20,10 +20,10 @@ const CreateCourse = () => {
     const submit = () => {
         course.userId = authenticatedUser.id;
         data.createCourse(course, authenticatedUser.emailAddress, authenticatedUser.password)
-            .then( errors => {
-                if (errors.length) {
-                    console.log(errors);
-                    setCourse({errors});
+            .then( errs => {
+                if (errs.length) {
+                    console.log(errs);
+                    setCourse({errors: errs});
                 } else {
                    history.push(`/`);
                 }

@@ -31,7 +31,7 @@ const Form = (props) => {
     );
 }
 
-const ErrorsDisplay = (errors) => {
+const ErrorsDisplay = ({errors}) => {
     let errorsDisplay = null;
 
     if (errors.length) {

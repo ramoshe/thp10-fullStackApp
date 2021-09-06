@@ -39,9 +39,13 @@ const CourseDetail = () => {
                                 <h3 className="course--detail--title">Course</h3>
                                 <h4 className="course--name">{course.title}</h4>
                                 
-                                {/* <p>By User Name</p> */}
-                                {console.log(course.user)}
-                                <p>By {course.user.firstName} {course.user.lastName}</p>
+                                <p>
+                                {
+                                    course.user 
+                                    ? (`By ${course.user.firstName} ${course.user.lastName}`)
+                                    : null
+                                }
+                                </p>
                                 
                                 <ReactMarkdown>{course.description}</ReactMarkdown>
                             </div>

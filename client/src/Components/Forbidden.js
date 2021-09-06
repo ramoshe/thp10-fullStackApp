@@ -6,7 +6,7 @@ const Forbidden = () => {
             <div className="form--centered">
                 <h2>Access Denied</h2>
                 <p>Sorry, you do not have access permission.</p>
-                <Link className="button button-secondary" to="/">Switch Accounts</Link>
+                <Link className="button button-secondary" to="/signin">Switch Accounts</Link>
                 <Link className="button button-secondary" to="/">Return to Course List</Link>
             </div>
         </main>

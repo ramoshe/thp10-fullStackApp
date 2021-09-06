@@ -47,6 +47,7 @@ const UpdateCourse = () => {
     if (course == null) {
         return <Redirect to="/notfound" />
     } else if (authenticatedUser.id !== course.userId) {
+        console.log(authenticatedUser);
         return <Redirect to="/forbidden" />
     } else {
         return (
