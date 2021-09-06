@@ -1,4 +1,4 @@
-# FSJS Project 10 - Full Stack App with React and a REST API
+# FSJS Project 10: Full Stack App with React and a REST API
 
 ## To Do List
 - [ ] Add comments
@@ -10,24 +10,29 @@
 - [ ] Display validation errors (step 10)
 - [ ] Am i handling password correctly? Should I use bcrypt?
 
-## How To
-1. Download all the project files
-2. In the console, navigate to the `api` directory and run `npm install`
-3. In the console, navigate to the `client` directory and run `npm start`
-4. In your browser, go to http://localhost:3000/
+## How To Use
+ - You can view a live version of this project here: https://g.ramoshe.com/thp9-RESTAPI/
+ - If you want a local copy of the project:
+    1. Download the files: https://github.com/ramoshe/thp9-RESTAPI/archive/refs/heads/main.zip
+    2. In the console, navigate to the `api` folder
+    3. Run `npm install` then `npm run seed` and then `npm start` 
+    4. In a separate console, navigate to the `client` folder and
+    5. Run `npm install` and then `npm start`
+    6. In your browser, go to http://localhost:3000/
 
-## Using Git Subtree for the API
+## Git Subtree for the API
 The API contained in the `api` folder is another repo that has been added to this repo as a subtree.
-You can see the original API repo here: 
+You can see the original API repo here: https://github.com/ramoshe/thp9-RESTAPI
 
-If you want to pull in new commits from the subtree, run this command:
+### How to Manage Subtree
+To pull in new commits from the original repo, run this command:
 `git subtree pull --prefix api https://github.com/ramoshe/thp9-RESTAPI.git main --squash`
 
-If you make any chages in the `api` directory they will be stored in this repo's logs only. In order to update the subtree remote repo, run this command:
+Any chages in the `api` directory will be stored in this repo's logs only. In order to update the original repo, run this command:
 `git subtree push --prefix api https://github.com/ramoshe/thp9-RESTAPI.git main --squash`
 
 ## Project Description
-*(from Treehouse)*
+*From Treehouse*
 
 In your final project, you’ll use React to create a client for your existing school database REST API (that you created in a previous project). The full stack application will provide a way for users to administer a school database containing information about courses: users can interact with the database by retrieving a list of courses, viewing detail for a specific course, as well as creating, updating and deleting courses in the database.
 
