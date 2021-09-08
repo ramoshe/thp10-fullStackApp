@@ -1,4 +1,7 @@
-
+/**
+ * This component renders a form with "Submit" and "Cancel" 
+ * buttons and displays any validation errors
+ */
 const Form = (props) => {
     
     const {
@@ -24,8 +27,12 @@ const Form = (props) => {
             <ErrorsDisplay errors={errors} />
             <form onSubmit={handleSubmit}>
                 {elements()}
-                <button className="button" type="submit">{submitButtonText}</button>
-                <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
+                <button 
+                    className="button" 
+                    type="submit">{submitButtonText}</button>
+                <button 
+                    className="button button-secondary" 
+                    onClick={handleCancel}>Cancel</button>
             </form>
         </div>
     );
@@ -40,7 +47,7 @@ const ErrorsDisplay = ({errors}) => {
                 <div className="validation--errors">
                     <h3>Validation errors</h3>
                     <ul>
-                        {errors.map((error, i) => <li key={i}>{error}</li>)}
+                        {errors.map((err, i) => <li key={i}>{err}</li>)}
                     </ul>
                 </div>
             );

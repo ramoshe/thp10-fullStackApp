@@ -1,3 +1,7 @@
+/**
+ * This component renders a form allowing a user to create a new course
+ * or cancel and return to the default route (course list)
+ */
 import { useState, useContext } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
 import { Context } from '../Context';
@@ -7,9 +11,12 @@ const CreateCourse = () => {
     
     let history = useHistory();
     let { data, authenticatedUser } = useContext(Context);
-
     const [ course, setCourse ] = useState({});
 
+    // Destructuring for later use
+    const { firstName, lastName } = authenticatedUser;
+
+    // Handler for changes in form inputs updates state
     const change = (event) => {
         setCourse( prevValues => ({ 
             ...prevValues, 
@@ -17,6 +24,7 @@ const CreateCourse = () => {
         }));
     };
 
+    // Handler for form submit button creates a new course listing
     const submit = () => {
         course.userId = authenticatedUser.id;
         data.createCourse(course, authenticatedUser.emailAddress, authenticatedUser.password)
@@ -33,6 +41,7 @@ const CreateCourse = () => {
             });
     };
 
+    // Handler for the form cancel button returns to default route (course list)
     const cancel = () => {
         history.push('/');
     };
@@ -56,7 +65,7 @@ const CreateCourse = () => {
                                     type="text" 
                                     onChange={change} />
 
-                                <p>By {authenticatedUser.firstName} {authenticatedUser.lastName}</p>
+                                <p>By {firstName} {lastName}</p>
 
                                 <label htmlFor="description">Course Description</label>
                                 <textarea 

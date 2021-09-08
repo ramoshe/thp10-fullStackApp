@@ -1,3 +1,7 @@
+/**
+ * This component renders a form allowing the user to sign in
+ * or cancel and return to the default route (course list)
+ */
 import { useContext, useState } from 'react';
 import { Link, useHistory, Redirect } from 'react-router-dom';
 import { Context } from '../Context';
@@ -6,9 +10,7 @@ import Form from './Form';
 const UserSignIn = (props) => {
 
     let history = useHistory();
-
     const { actions } = useContext(Context);
-
     const [ userValues, setUserValues ] = useState({
         firstName: '',
         lastName: '',
@@ -17,10 +19,10 @@ const UserSignIn = (props) => {
         errors: []
     });
 
-    // Destructure user variables for later use
-    const { //firstName, lastName, 
-        emailAddress, password, errors } = userValues;
+    // Destructuring user variables from state for later use
+    const { emailAddress, password, errors } = userValues;
 
+    // Handler for changes in input fields updates state
     const change = (event) => {
         setUserValues( prevValues => ({ 
             ...prevValues, 
@@ -28,6 +30,7 @@ const UserSignIn = (props) => {
         }));
     };
 
+    // Handler for the form submit button ("Sign In") logs in user
     const submit = () => {
         actions.signIn(emailAddress, password)
             .then( user => {
@@ -43,6 +46,7 @@ const UserSignIn = (props) => {
             });
     };
 
+    // Handler for the cancel button returns to default route (course list)
     const cancel = () => {
         history.push('/');
     }

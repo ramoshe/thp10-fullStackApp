@@ -1,11 +1,17 @@
+/**
+ * This component renders the list of courses for the home page,
+ * links to each "Course Detail" page, and to the "Create Course" screen
+ */
 import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../Context';
 
 const Courses = () => {
     
-    const [ courses, setCourses ] = useState([]);
-    const { data } = useContext(Context);
+    /* courses is initialized as an array here (instead of an object like in the
+       other components) so that the courses.map call later will work properly */
+       const { data } = useContext(Context);
+       const [ courses, setCourses ] = useState([]);
 
     useEffect(() => {
         data.getAllCourses()

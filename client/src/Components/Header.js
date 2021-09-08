@@ -1,3 +1,7 @@
+/**
+ * This component renders the top menu bar and buttons for signing
+ * in, up, or out and a greeting when a user is logged in
+ */
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../Context';
@@ -5,6 +9,7 @@ import { Context } from '../Context';
 const Header = () => {
     const { authenticatedUser } = useContext(Context);
     
+    // Checks if a user is logged in
     let authUser = '';
     if (authenticatedUser) {
         authUser = `${authenticatedUser.firstName} ${authenticatedUser.lastName}`;
@@ -15,12 +20,13 @@ const Header = () => {
             <div className="wrap header--flex">
                 <h1 className="header--logo"><Link to="/">Courses</Link></h1>
                 <nav>
-                    {authenticatedUser ? 
+                    { /* If user is logged in, render greeting and "Sign Out" button */
+                    authenticatedUser ? 
                         <ul className="header--signedin">
                             <li>Welcome, {authUser}!</li>
                             <li><Link to="/signout">Sign Out</Link></li> 
                         </ul> 
-                        : 
+                    : /* If user is not logged in render "Sign In" and "Sign Up" buttons */
                         <ul className="header--signedout">
                             <li><Link to="/signup">Sign Up</Link></li>
                             <li><Link to="/signin">Sign In</Link></li>

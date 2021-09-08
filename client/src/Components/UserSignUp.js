@@ -1,3 +1,7 @@
+/**
+ * This component renders a form allowing a user to create a new account
+ * or cancel and return to the default route (course list)
+ */
 import { useContext, useState } from 'react';
 import { Link, useHistory, Redirect } from 'react-router-dom';
 import { Context } from '../Context';
@@ -6,9 +10,7 @@ import Form from './Form';
 const UserSignUp = () => {
 
     let history = useHistory();
-
     const { data, actions } = useContext(Context);
-
     const [ userValues, setUserValues ] = useState({
         firstName: '',
         lastName: '',
@@ -17,6 +19,10 @@ const UserSignUp = () => {
         errors: []
     });
 
+    // Destructuring for later use
+    const { errors } = userValues;
+
+    // Handler for changes in form inputs updates state
     const change = (event) => {
         setUserValues( prevValues => ({ 
             ...prevValues, 
@@ -24,6 +30,7 @@ const UserSignUp = () => {
         }));
     };
     
+    // Handler for form submit to create a new user
     const submit = () => {
         const { firstName, lastName, emailAddress, password } = userValues;
         const user = { firstName, lastName, emailAddress, password };
@@ -41,11 +48,11 @@ const UserSignUp = () => {
             });
     };
 
+    // Handler for the cancel button returns to default route (course list)
     const cancel = () => {
         history.push('/');
     };
 
-    const { errors } = userValues;
     return (
         <main>
             <div className="form--centered">

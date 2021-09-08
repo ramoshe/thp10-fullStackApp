@@ -1,3 +1,7 @@
+/**
+ * The component renders a message letting the user know
+ * that an unexpected error has occured (500 error)
+ */
 import { Link } from 'react-router-dom';
 
 const UnhandledError = () => {

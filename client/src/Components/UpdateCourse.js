@@ -1,3 +1,7 @@
+/**
+ * This component renders a rorm allowing the user to update an existing
+ * course or cancel and return to the "Course Detail" page
+ */
 import { useState, useContext, useEffect } from 'react';
 import { useHistory, useParams, Redirect } from 'react-router-dom';
 import { Context } from '../Context';
@@ -5,9 +9,9 @@ import Form from './Form';
 
 const UpdateCourse = () => {
     
+    const { id } = useParams();
     let history = useHistory();
     let { data, authenticatedUser } = useContext(Context);
-    const { id } = useParams();
     const [ course, setCourse ] = useState({});
 
     useEffect(() => {
@@ -15,6 +19,10 @@ const UpdateCourse = () => {
             .then(course => setCourse(course));
     }, [ data, id ]);
 
+    // Destructure for later use
+    const { title, description, estimatedTime, materialsNeeded } = course;
+
+    // Handler for changes in form inputs updates state
     const change = (event) => {
         setCourse( prevValues => ({ 
             ...prevValues, 
@@ -22,8 +30,9 @@ const UpdateCourse = () => {
         }));
     };
 
+    // Handler for form submit button updates the course object
     const submit = () => {
-        course.userId = authenticatedUser.id;
+        //course.userId = authenticatedUser.id;
         data.updateCourse(id, course, authenticatedUser.emailAddress, authenticatedUser.password)
             .then( errors => {
                 if (errors.length) {
@@ -38,17 +47,18 @@ const UpdateCourse = () => {
             });
     };
 
+    // Handler for form cancel button returns to "Course Detail" page
     const cancel = () => {
         history.push(`/courses/${id}`);
     };
-
-    const { title, description, estimatedTime, materialsNeeded } = course;
     
+    // If the course does not exist, redirect to "Not Found"
     if (course == null) {
         return <Redirect to="/notfound" />
+    // If the user is not the course owner, redirect to "Forbidden"
     } else if (authenticatedUser.id !== course.userId) {
-        console.log(authenticatedUser);
         return <Redirect to="/forbidden" />
+    // If course exists and user is owner, render the form
     } else {
         return (
             <main>

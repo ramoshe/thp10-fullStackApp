@@ -1,11 +1,11 @@
+/**
+ * This file sets up the Context to allow data to pass throughout
+ * the app component tree using the React Context API
+ */
 import React, { useState } from 'react';
 import Data from './Data';
 import Cookies from 'js-cookie';
 
-/**
- * This file sets up the Context to allow data to pass
- * through the app component tree.
- */
 export const Context = React.createContext();
 
 export const Provider = (props) => {
@@ -18,6 +18,7 @@ export const Provider = (props) => {
 
     const [ data ] = useState(new Data());
 
+    // Method that authenticates user and persists their info in global state
     const signIn = async (emailAddress, password) => {
         const user = await data.getUser(emailAddress, password);
         if (user !== null) {
@@ -29,6 +30,7 @@ export const Provider = (props) => {
         return user;
     };
 
+    // Method that removes authenticated user from global atate
     const signOut = () => {
         setAuthUser(null);
         Cookies.remove('authenticatedUser');

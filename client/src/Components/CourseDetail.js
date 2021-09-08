@@ -1,3 +1,7 @@
+/**
+ * This component renders the "Course Detail" screen, with navigation buttons
+ * for "Update Course" and "Delete Course"
+ */
 import { useState, useEffect, useContext } from 'react';
 import { Link, useParams, Redirect } from 'react-router-dom';
 import { Context } from '../Context';
@@ -6,8 +10,8 @@ import ReactMarkdown from 'react-markdown';
 const CourseDetail = () => {
     
     const { id } = useParams();
-    const [ course, setCourse ] = useState({});
     const { data, authenticatedUser } = useContext(Context);
+    const [ course, setCourse ] = useState({});
 
     useEffect(() => {
         data.getCourse(id)
@@ -21,7 +25,8 @@ const CourseDetail = () => {
             <main>
                 <div className="actions--bar">
                     <div className="wrap">
-                        {authenticatedUser && authenticatedUser.id === course.userId ?
+                        {/* Buttons for "Update" and "Delete" only appear if user is course owner */
+                        authenticatedUser && authenticatedUser.id === course.userId ?
                             <>
                             <Link className="button" to={`/courses/${course.id}/update`}>Update Course</Link>
                             <Link className="button" to={`/courses/${course.id}/delete`}>Delete Course</Link>
@@ -40,11 +45,11 @@ const CourseDetail = () => {
                                 <h4 className="course--name">{course.title}</h4>
                                 
                                 <p>
-                                {
-                                    course.user 
-                                    ? (`By ${course.user.firstName} ${course.user.lastName}`)
-                                    : null
-                                }
+                                { /* user name does not load with other course info for
+                                  some reason, which is why the conditional is used here */
+                                    course.user ? 
+                                    (`By ${course.user.firstName} ${course.user.lastName}`)
+                                    : null }
                                 </p>
                                 
                                 <ReactMarkdown>{course.description}</ReactMarkdown>

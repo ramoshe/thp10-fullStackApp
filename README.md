@@ -1,14 +1,11 @@
 # FSJS Project 10: Full Stack App with React and a REST API
 
 ## To Do List
+- [ ] Figure out why updte course is wrongfully redirecting to Forbidden
 - [ ] Add comments
 - [ ] Customize styles, replace logo.svg
-- [ ] Run through "How You'll Be Graded"
-
-### Need Help
-- [ ] Displaying user name on CourseDetail page
-- [ ] Display validation errors (step 10)
-- [ ] Am i handling password correctly? Should I use bcrypt?
+- [x] Run through "How You'll Be Graded"
+- [ ] Use bcrypt for passwords?
 
 ## How To Use
  - You can view a live version of this project here: https://g.ramoshe.com/thp9-RESTAPI/

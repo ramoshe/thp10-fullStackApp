@@ -1,3 +1,7 @@
+/**
+ * This component renders a message letting the
+ * user know the requested page can't be found (404)
+ */
 import { Link } from 'react-router-dom';
 
 const NotFound = () => {
