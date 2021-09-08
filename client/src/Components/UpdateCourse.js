@@ -8,7 +8,7 @@ const UpdateCourse = () => {
     let history = useHistory();
     let { data, authenticatedUser } = useContext(Context);
     const { id } = useParams();
-    const [ course, setCourse ] = useState([]);
+    const [ course, setCourse ] = useState({});
 
     useEffect(() => {
         data.getCourse(id)

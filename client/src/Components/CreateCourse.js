@@ -8,7 +8,7 @@ const CreateCourse = () => {
     let history = useHistory();
     let { data, authenticatedUser } = useContext(Context);
 
-    const [ course, setCourse ] = useState([]);
+    const [ course, setCourse ] = useState({});
 
     const change = (event) => {
         setCourse( prevValues => ({ 

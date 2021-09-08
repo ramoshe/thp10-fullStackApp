@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 const CourseDetail = () => {
     
     const { id } = useParams();
-    const [ course, setCourse ] = useState([]);
+    const [ course, setCourse ] = useState({});
     const { data, authenticatedUser } = useContext(Context);
 
     useEffect(() => {
