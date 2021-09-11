@@ -3,7 +3,7 @@
  * course or cancel and return to the "Course Detail" page
  */
 import { useState, useContext, useEffect } from 'react';
-import { useHistory, useParams, Redirect } from 'react-router-dom';
+import { useHistory, useParams, Redirect, useLocation } from 'react-router-dom';
 import { Context } from '../Context';
 import Form from './Form';
 
@@ -13,14 +13,13 @@ const UpdateCourse = () => {
     let history = useHistory();
     let { data, authenticatedUser } = useContext(Context);
     const [ course, setCourse ] = useState({});
+    const location = useLocation();
+    const { courseUserID } = location.state || 0;
 
     useEffect(() => {
         data.getCourse(id)
             .then(course => setCourse(course));
     }, [ data, id ]);
-
-    // Destructure for later use
-    const { title, description, estimatedTime, materialsNeeded } = course;
 
     // Handler for changes in form inputs updates state
     const change = (event) => {
@@ -32,7 +31,6 @@ const UpdateCourse = () => {
 
     // Handler for form submit button updates the course object
     const submit = () => {
-        //course.userId = authenticatedUser.id;
         data.updateCourse(id, course, authenticatedUser.emailAddress, authenticatedUser.password)
             .then( errors => {
                 if (errors.length) {
@@ -51,14 +49,14 @@ const UpdateCourse = () => {
     const cancel = () => {
         history.push(`/courses/${id}`);
     };
-    
+
     // If the course does not exist, redirect to "Not Found"
-    if (course == null) {
-        return <Redirect to="/notfound" />
+    if (course === null) {
+        return <Redirect to="/notfound" />;
     // If the user is not the course owner, redirect to "Forbidden"
-    } else if (authenticatedUser.id !== course.userId) {
-        return <Redirect to="/forbidden" />
-    // If course exists and user is owner, render the form
+    } else if (authenticatedUser.id !== courseUserID) {
+        return <Redirect to="/forbidden" />;
+    // If course exists and user is owner, render the prepopulated form
     } else {
         return (
             <main>
@@ -77,7 +75,7 @@ const UpdateCourse = () => {
                                         id="title" 
                                         name="title" 
                                         type="text" 
-                                        value={title} 
+                                        defaultValue={course.title} 
                                         onChange={change} />
 
                                     <p>By {authenticatedUser.firstName} {authenticatedUser.lastName}</p>
@@ -86,7 +84,7 @@ const UpdateCourse = () => {
                                     <textarea 
                                         id="description" 
                                         name="description" 
-                                        value={description} 
+                                        defaultValue={course.description} 
                                         onChange={change} />
                                 </div>
                                 <div>
@@ -95,14 +93,14 @@ const UpdateCourse = () => {
                                         id="estimatedTime" 
                                         name="estimatedTime" 
                                         type="text" 
-                                        value={estimatedTime} 
+                                        defaultValue={course.estimatedTime} 
                                         onChange={change} />
 
                                     <label htmlFor="materialsNeeded">Materials Needed</label>
                                     <textarea 
                                         id="materialsNeeded" 
                                         name="materialsNeeded" 
-                                        value={materialsNeeded} 
+                                        defaultValue={course.materialsNeeded} 
                                         onChange={change} />
                                 </div>
                             </div>

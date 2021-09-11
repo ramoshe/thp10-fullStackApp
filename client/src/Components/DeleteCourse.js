@@ -3,13 +3,15 @@
  */
 import { useContext, useState, useEffect } from 'react';
 import { Context } from '../Context';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, Redirect, useLocation } from 'react-router-dom';
 
 const DeleteCourse = () => {
 
     const { id } = useParams();
     const { data, authenticatedUser } = useContext(Context);
     const [ course, setCourse ] = useState([]);
+    const location = useLocation();
+    const { courseUserID } = location.state || 0;
 
     useEffect(() => {
         data.getCourse(id)
@@ -20,7 +22,7 @@ const DeleteCourse = () => {
     if (course === null) {
         return <Redirect to="/notfound" />
     // If user is not owner redirect to "Forbidden"
-    } else if (authenticatedUser.id !== course.userId) {
+    } else if (authenticatedUser.id !== courseUserID) {
         return <Redirect to="/forbidden" />
     // If course exists and user is owner delete the course and redirect to course list
     } else {

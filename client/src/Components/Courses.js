@@ -10,8 +10,8 @@ const Courses = () => {
     
     /* courses is initialized as an array here (instead of an object like in the
        other components) so that the courses.map call later will work properly */
-       const { data } = useContext(Context);
-       const [ courses, setCourses ] = useState([]);
+    const { data } = useContext(Context);
+    const [ courses, setCourses ] = useState([]);
 
     useEffect(() => {
         data.getAllCourses()

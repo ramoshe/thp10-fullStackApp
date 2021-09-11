@@ -7,7 +7,7 @@ import { Link, useHistory, Redirect } from 'react-router-dom';
 import { Context } from '../Context';
 import Form from './Form';
 
-const UserSignIn = (props) => {
+const UserSignIn = () => {
 
     let history = useHistory();
     const { actions } = useContext(Context);

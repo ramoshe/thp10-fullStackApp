@@ -28,8 +28,16 @@ const CourseDetail = () => {
                         {/* Buttons for "Update" and "Delete" only appear if user is course owner */
                         authenticatedUser && authenticatedUser.id === course.userId ?
                             <>
-                            <Link className="button" to={`/courses/${course.id}/update`}>Update Course</Link>
-                            <Link className="button" to={`/courses/${course.id}/delete`}>Delete Course</Link>
+                            <Link className="button" to={{
+                                pathname: `/courses/${id}/update`,
+                                state: {
+                                    courseUserID: course.userId
+                                }}}>Update Course</Link>
+                            <Link className="button" to={{
+                                pathname: `/courses/${id}/delete`,
+                                state: {
+                                    courseUserID: course.userId
+                                }}}>Delete Course</Link>
                             </>
                             : null } 
                         <Link className="button button-secondary" to="/">Return to List</Link>

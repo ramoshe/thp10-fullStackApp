@@ -1,8 +1,8 @@
 # FSJS Project 10: Full Stack App with React and a REST API
 
 ## To Do List
-- [ ] Figure out why updte course is wrongfully redirecting to Forbidden
-- [ ] Add comments
+- [x] Figure out why updte course is wrongfully redirecting to Forbidden
+- [x] Add comments
 - [ ] Customize styles, replace logo.svg
 - [x] Run through "How You'll Be Graded"
 - [ ] Use bcrypt for passwords?
