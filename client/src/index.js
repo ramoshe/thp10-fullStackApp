@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import './styles/reset.css';
 import './styles/global.css';
+import './styles/skillsacademy.css';
 
 import { Provider } from './Context';
 

@@ -1,19 +1,12 @@
 # FSJS Project 10: Full Stack App with React and a REST API
 
-## To Do List
-- [x] Figure out why updte course is wrongfully redirecting to Forbidden
-- [x] Add comments
-- [ ] Customize styles, replace logo.svg
-- [x] Run through "How You'll Be Graded"
-- [ ] Use bcrypt for passwords?
-
 ## How To Use
  - You can view a live version of this project here: https://g.ramoshe.com/thp9-RESTAPI/
  - If you want a local copy of the project:
     1. Download the files: https://github.com/ramoshe/thp9-RESTAPI/archive/refs/heads/main.zip
-    2. In the console, navigate to the `api` folder
+    2. In the terminal, navigate to the `api` folder
     3. Run `npm install` then `npm run seed` and then `npm start` 
-    4. In a separate console, navigate to the `client` folder and
+    4. In a separate terminal, navigate to the `client` folder and
     5. Run `npm install` and then `npm start`
     6. In your browser, go to http://localhost:3000/
 
@@ -44,3 +37,7 @@ Use React Router to set up your routes.
 Use the Fetch API or a tool like Axios to fetch data from your REST API.
 Allow users to sign up and use basic authentication to support users signing in.
 Add to the supplied CSS to personalize the project.
+
+## Notes
+Favicon from https://favicon.io/emoji-favicons/bookmark
+Color pallette generated using Coolors https://coolors.co/032a54-054a91-0766c5-3087df-58a8f9-a6d1fc-d3e8fd-f17300

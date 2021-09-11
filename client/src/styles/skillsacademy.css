@@ -1,0 +1,80 @@
+/* This fils contains my custom styles added to this project
+   primarily involving changing the fonts and converting to 
+   a blue color scheme.  */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+a {
+    color: #F17300;
+}
+
+header {
+    background: #032A54;
+}
+
+.header--logo, .course--title {
+    font-family: 'Noto Serif', serif;
+}
+
+header nav a {
+    color: #A6D1FC; 
+}
+
+.course--module {
+    background: #0766C5;
+    box-shadow: 3px 3px 7px black;
+}
+
+.course--add--module {
+    background: #A6D1FC;
+    color: #054A91;
+}
+
+.course--add--title .add {
+    fill: #054A91;
+}
+
+.course--name {
+    color: #054A91;
+}
+
+.actions--bar {
+    background: #E2F0FE;
+}
+
+.validation--errors {
+    background: #D3E8FD;
+}
+
+input, textarea {
+    color: #032A54;
+    border-color: #3087DF;
+}
+
+.button {
+    background: #0766C5;
+}
+.button:not(.button-secondary):hover {
+    background: #3087DF
+}
+
+.button-secondary {
+    color: #58A8F9;
+    background: none;
+    box-shadow: 0 0 0 2px #58A8F9 inset;
+}
+
+.button-secondary:hover {
+    color: #0766C5;
+    box-shadow: 0 0 0 2px #0766C5 inset;
+}
+
+input:focus, button:focus, .button:focus, textarea:focus {
+    outline: 2px solid #032A54;
+}
+

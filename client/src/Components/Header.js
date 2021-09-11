@@ -18,7 +18,7 @@ const Header = () => {
     return (
         <header>
             <div className="wrap header--flex">
-                <h1 className="header--logo"><Link to="/">Courses</Link></h1>
+                <h1 className="header--logo"><Link to="/">Skills Academy Courses</Link></h1>
                 <nav>
                     { /* If user is logged in, render greeting and "Sign Out" button */
                     authenticatedUser ? 
