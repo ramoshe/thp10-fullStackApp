@@ -77,7 +77,7 @@ const UpdateCourse = () => {
                                         name="title" 
                                         type="text" 
                                         defaultValue={course.title} 
-                                        onInput={change} />
+                                        onChange={change} />
 
                                     <p>By {authenticatedUser.firstName} {authenticatedUser.lastName}</p>
 
@@ -86,7 +86,7 @@ const UpdateCourse = () => {
                                         id="description" 
                                         name="description" 
                                         defaultValue={course.description} 
-                                        onInput={change} />
+                                        onChange={change} />
                                 </div>
                                 <div>
                                     <label htmlFor="estimatedTime">Estimated Time</label>
@@ -95,14 +95,14 @@ const UpdateCourse = () => {
                                         name="estimatedTime" 
                                         type="text" 
                                         defaultValue={course.estimatedTime} 
-                                        onInput={change} />
+                                        onChange={change} />
 
                                     <label htmlFor="materialsNeeded">Materials Needed</label>
                                     <textarea 
                                         id="materialsNeeded" 
                                         name="materialsNeeded" 
                                         defaultValue={course.materialsNeeded} 
-                                        onInput={change} />
+                                        onChange={change} />
                                 </div>
                             </div>
                         )} />
