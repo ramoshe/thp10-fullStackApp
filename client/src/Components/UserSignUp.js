@@ -38,6 +38,7 @@ const UserSignUp = () => {
             .then( errs => {
                 if (errs.length) {
                     setUserValues({errors: errs});
+                    document.querySelector('FORM').reset();
                 } else {
                     actions.signIn(emailAddress, password)
                         .then(() => history.goBack());
@@ -93,7 +94,7 @@ const UserSignUp = () => {
                                 onChange={change} />
                         </>
                     )} />
-                <p>Already have a user account? Click here to <Link to="/signin">sign in</Link>!</p>
+                <p>Already have an account? Click here to <Link to="/signin">sign in</Link>!</p>
             </div>
         </main>
     );

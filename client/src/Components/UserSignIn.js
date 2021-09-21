@@ -36,6 +36,7 @@ const UserSignIn = () => {
             .then( user => {
                 if (user === null) {
                     setUserValues({ errors: [ 'Sign-in was unsuccessful' ] });
+                    document.querySelector('FORM').reset();
                 } else {
                     history.goBack();
                     console.log(`SUCCESS! ${emailAddress} is now signed in!`);
@@ -77,7 +78,7 @@ const UserSignIn = () => {
                                 onChange={change} />
                         </>
                     )} />
-                <p>Don't have a user account? Click here to <Link to="/signup">sign up</Link>!</p>
+                <p>Don't have an account? Click here to <Link to="/signup">sign up</Link>!</p>
                 
             </div>
         </main>

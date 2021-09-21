@@ -31,6 +31,7 @@ const UpdateCourse = () => {
 
     // Handler for form submit button updates the course object
     const submit = () => {
+        console.log(course.title, course.description);
         data.updateCourse(id, course, authenticatedUser.emailAddress, authenticatedUser.password)
             .then( errors => {
                 if (errors.length) {
@@ -76,7 +77,7 @@ const UpdateCourse = () => {
                                         name="title" 
                                         type="text" 
                                         defaultValue={course.title} 
-                                        onChange={change} />
+                                        onInput={change} />
 
                                     <p>By {authenticatedUser.firstName} {authenticatedUser.lastName}</p>
 
@@ -85,7 +86,7 @@ const UpdateCourse = () => {
                                         id="description" 
                                         name="description" 
                                         defaultValue={course.description} 
-                                        onChange={change} />
+                                        onInput={change} />
                                 </div>
                                 <div>
                                     <label htmlFor="estimatedTime">Estimated Time</label>
@@ -94,14 +95,14 @@ const UpdateCourse = () => {
                                         name="estimatedTime" 
                                         type="text" 
                                         defaultValue={course.estimatedTime} 
-                                        onChange={change} />
+                                        onInput={change} />
 
                                     <label htmlFor="materialsNeeded">Materials Needed</label>
                                     <textarea 
                                         id="materialsNeeded" 
                                         name="materialsNeeded" 
                                         defaultValue={course.materialsNeeded} 
-                                        onChange={change} />
+                                        onInput={change} />
                                 </div>
                             </div>
                         )} />
