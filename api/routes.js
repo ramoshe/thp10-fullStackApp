@@ -86,7 +86,7 @@ router.post('/courses', authenticateUser, asyncHandler(async(req, res) => {
     }
 }));
 
-// Route that will UPDATE the correspoding course
+// Route that will UPDATE the corresponding course
 router.put('/courses/:id', authenticateUser, asyncHandler(async(req, res) => {
     try {
         const course = await Course.findByPk(req.params.id);
@@ -108,6 +108,11 @@ router.put('/courses/:id', authenticateUser, asyncHandler(async(req, res) => {
         }
     } catch (error) {
         if (error.name === 'SequelizeValidationError') {
+            course.title = req.body.title;
+            course.description = req.body.description;
+            course.estimatedTime = req.body.estimatedTime;
+            course.materialsNeeded = req.body.materialsNeeded;
+            await course.save();
             const errors = error.errors.map(err => err.message);
             res.status(400).json({errors});   
         } else {

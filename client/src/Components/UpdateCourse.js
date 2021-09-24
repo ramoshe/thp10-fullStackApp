@@ -1,5 +1,5 @@
 /**
- * This component renders a rorm allowing the user to update an existing
+ * This component renders a form allowing the user to update an existing
  * course or cancel and return to the "Course Detail" page
  */
 import { useState, useContext, useEffect } from 'react';
@@ -31,7 +31,6 @@ const UpdateCourse = () => {
 
     // Handler for form submit button updates the course object
     const submit = () => {
-        console.log(course.title, course.description);
         data.updateCourse(id, course, authenticatedUser.emailAddress, authenticatedUser.password)
             .then( errors => {
                 if (errors.length) {
