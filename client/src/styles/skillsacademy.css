@@ -10,11 +10,11 @@ body {
 }
 
 a {
-    color: #F17300;
+    color: #CD5700;
 }
 
 header {
-    background: #032A54;
+    background: #16425B;
 }
 
 .header--logo, .course--title {
@@ -22,59 +22,59 @@ header {
 }
 
 header nav a {
-    color: #A6D1FC; 
+    color: #81C3D7; 
 }
 
 .course--module {
-    background: #0766C5;
+    background: #2F6690;
     box-shadow: 3px 3px 7px black;
 }
 
 .course--add--module {
-    background: #A6D1FC;
-    color: #054A91;
+    background: #81C3D7;
+    color: #235476;
 }
 
 .course--add--title .add {
-    fill: #054A91;
+    fill: #235476;
 }
 
 .course--name {
-    color: #054A91;
+    color: #235476;
 }
 
 .actions--bar {
-    background: #E2F0FE;
+    background: #ADD0D7;
 }
 
 .validation--errors {
-    background: #D3E8FD;
+    background: #ADD0D7;
 }
 
 input, textarea {
-    color: #032A54;
-    border-color: #3087DF;
+    color: #16425B;
+    border-color: #3A7CA5;
 }
 
 .button {
-    background: #0766C5;
+    background: #2F6690;
 }
 .button:not(.button-secondary):hover {
-    background: #3087DF
+    background: #3A7CA5
 }
 
 .button-secondary {
-    color: #58A8F9;
+    color: #5EA0BE;
     background: none;
-    box-shadow: 0 0 0 2px #58A8F9 inset;
+    box-shadow: 0 0 0 2px #5EA0BE inset;
 }
 
 .button-secondary:hover {
-    color: #0766C5;
-    box-shadow: 0 0 0 2px #0766C5 inset;
+    color: #2F6690;
+    box-shadow: 0 0 0 2px #2F6690 inset;
 }
 
 input:focus, button:focus, .button:focus, textarea:focus {
-    outline: 2px solid #032A54;
+    outline: 2px solid #16425B;
 }
 
