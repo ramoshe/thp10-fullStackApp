@@ -40,4 +40,4 @@ Add to the supplied CSS to personalize the project.
 
 ## Notes
 Favicon from https://favicon.io/emoji-favicons/bookmark
-Color pallette generated using Coolors https://coolors.co/16425b-235476-2f6690-3a7ca5-5ea0be-81c3d7-add0d7-cd5700
+Color pallette generated using Coolors https://coolors.co/16425b-235476-2f6690-3a7ca5-5ea0be-81c3d7-add0d7-f0ead5-cd5700
