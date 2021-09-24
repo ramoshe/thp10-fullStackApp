@@ -7,7 +7,7 @@ import { Link, useHistory, Redirect } from 'react-router-dom';
 import { Context } from '../Context';
 import Form from './Form';
 
-const UserSignUp = () => {
+const UserSignUp = (props) => {
 
     let history = useHistory();
     const { data, actions } = useContext(Context);
@@ -34,6 +34,7 @@ const UserSignUp = () => {
     const submit = () => {
         const { firstName, lastName, emailAddress, password } = userValues;
         const user = { firstName, lastName, emailAddress, password };
+        const { from } = props.location.state || { from: { pathname: '/' } };
         data.createUser(user)
             .then( errs => {
                 if (errs.length) {
@@ -41,7 +42,7 @@ const UserSignUp = () => {
                     document.querySelector('FORM').reset();
                 } else {
                     actions.signIn(emailAddress, password)
-                        .then(() => history.goBack());
+                        .then(() => history.push(from));
                 }
             }).catch( err => {
                 console.log(err);
