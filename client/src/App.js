@@ -18,7 +18,7 @@ import UnhandledError from './Components/UnhandledError'
 
 function App() {
     return (
-        <BrowserRouter forceRefresh={true}>
+        <BrowserRouter /*forceRefresh={true}*/>
             <Header />
             <Switch>
                 <Route exact path="/" component={Courses} />
