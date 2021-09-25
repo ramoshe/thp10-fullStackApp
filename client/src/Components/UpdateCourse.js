@@ -41,7 +41,7 @@ const UpdateCourse = () => {
                 }
             }).catch( err => {
                 console.log(err);
-                return <Redirect to="/error" />;
+                history.push('error');
             });
     };
 
@@ -49,9 +49,9 @@ const UpdateCourse = () => {
     const cancel = () => {
         history.push(`/courses/${id}`);
     };
-
+    
     // If the course does not exist, redirect to "Not Found"
-    if (course === null) {
+    if (!course.title) {
         return <Redirect to="/notfound" />;
     // If the user is not the course owner, redirect to "Forbidden"
     } else if (authenticatedUser.id !== courseUserID) {

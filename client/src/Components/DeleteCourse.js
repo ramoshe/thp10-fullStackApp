@@ -19,7 +19,7 @@ const DeleteCourse = () => {
     }, [ data, id ]);
 
     // If course does not exist redirect to "Not Found"
-    if (course === null) {
+    if (!course.title) {
         return <Redirect to="/notfound" />
     // If user is not owner redirect to "Forbidden"
     } else if (authenticatedUser.id !== courseUserID) {

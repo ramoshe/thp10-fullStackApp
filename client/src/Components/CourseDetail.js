@@ -18,7 +18,7 @@ const CourseDetail = () => {
             .then(course => setCourse(course));
     }, [ data, id ]);
         
-    if (course == null) {
+    if (course === null) {
         return <Redirect to="/notfound" />
     } else {
         return (
