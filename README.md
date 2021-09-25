@@ -1,9 +1,11 @@
 # FSJS Project 10: Full Stack App with React and a REST API
 
 ## How To Use
- - You can view a live version of this project here: https://g.ramoshe.com/thp9-RESTAPI/
+ - You can view a live version of this project here: https://g.ramoshe.com/thp10-fullStackApp
+/
  - If you want a local copy of the project:
-    1. Download the files: https://github.com/ramoshe/thp9-RESTAPI/archive/refs/heads/main.zip
+    1. Download the files: https://github.com/ramoshe/thp10-fullStackApp
+/archive/refs/heads/main.zip
     2. In the terminal, navigate to the `api` folder
     3. Run `npm install` then `npm run seed` and then `npm start` 
     4. In a separate terminal, navigate to the `client` folder and

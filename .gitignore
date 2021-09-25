@@ -1,3 +1,4 @@
-markup/
-mockups/
-"client/src/Components/UpdateCourse copy.js"
+.DS_Store
+/markup
+/mockups
+"/client/src/Components/UpdateCourse copy.js"
