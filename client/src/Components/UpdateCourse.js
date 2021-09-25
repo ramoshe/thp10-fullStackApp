@@ -11,8 +11,8 @@ const UpdateCourse = () => {
     
     const { id } = useParams();
     let history = useHistory();
-    let { data, authenticatedUser } = useContext(Context);
-    const [ course, setCourse ] = useState(null);
+    let { data, authenticatedUser, validCourseIDs } = useContext(Context);
+    const [ course, setCourse ] = useState({});
     const location = useLocation();
     const { courseUserID } = location.state || 0;
 
@@ -49,9 +49,9 @@ const UpdateCourse = () => {
     const cancel = () => {
         history.push(`/courses/${id}`);
     };
-    
-    // If the course does not exist, redirect to "Not Found"
-    if (course === null) {
+console.log(validCourseIDs);    
+    // If the course is an empty object, redirect to "Not Found"
+    if (!validCourseIDs.includes(parseInt(id))) {
         return <Redirect to="/notfound" />;
     // If the user is not the course owner, redirect to "Forbidden"
     } else if (authenticatedUser.id !== courseUserID) {

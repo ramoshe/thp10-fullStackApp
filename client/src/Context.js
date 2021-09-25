@@ -10,10 +10,15 @@ export const Context = React.createContext();
 
 export const Provider = (props) => {
 
-    const cookie = Cookies.get('authenticatedUser');
+    const userCookie = Cookies.get('authenticatedUser');
+    const courseCookie = Cookies.get('validCourseIDs');
 
     const [ authenticatedUser, setAuthUser ] = useState(
-        cookie ? JSON.parse(cookie) : null
+        userCookie ? JSON.parse(userCookie) : null
+    );
+
+    const [ validCourseIDs, setValidCourseIDs ] = useState(
+        courseCookie ? courseCookie : null
     );
 
     const [ data ] = useState(new Data());
@@ -35,11 +40,18 @@ export const Provider = (props) => {
         Cookies.remove('authenticatedUser');
     };
 
+    // Method that sets the array of valid course IDs
+    const setIDs = (IDs) => {
+        setValidCourseIDs(IDs);
+        Cookies.set('validCourseIDs', IDs, {expires: 1});
+    }
+
     return (
         <Context.Provider value={{ 
             authenticatedUser,
+            validCourseIDs,
             data,
-            actions: { signIn, signOut }
+            actions: { signIn, signOut, setIDs }
         }}>
             {props.children}
         </Context.Provider>
