@@ -3,7 +3,7 @@
  * or cancel and return to the default route (course list)
  */
 import { useState, useContext } from 'react';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Context } from '../Context';
 import Form from './Form';
 
@@ -37,7 +37,7 @@ const CreateCourse = () => {
                 }
             }).catch( err => {
                 console.log(err);
-                return <Redirect to="/error" />;
+                history.push('/error');
             });
     };
 

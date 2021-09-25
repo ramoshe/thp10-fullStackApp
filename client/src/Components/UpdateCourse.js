@@ -41,7 +41,7 @@ const UpdateCourse = () => {
                 }
             }).catch( err => {
                 console.log(err);
-                return <Redirect to="/error" />;
+                history.push('/error');
             });
     };
 
