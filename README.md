@@ -1,7 +1,7 @@
 # FSJS Project 10: Full Stack App with React and a REST API
 
 ## How To Use
- - You can view a live version of this project here: https://g.ramoshe.com/thp10-fullStackApp
+ - You can view a live version of this project here: http://phpstack-694634-2295534.cloudwaysapps.com
 /
  - If you want a local copy of the project:
     1. Download the files: https://github.com/ramoshe/thp10-fullStackApp
