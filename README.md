@@ -21,7 +21,7 @@
  </script>
  ```
 
- ## 404 File
+ ## 404.html File
  ```
  <!DOCTYPE html>
  <html>
@@ -44,3 +44,6 @@
    </body>
  </html>
  ```
+
+### Sources
+These instructions are based on the information found at https://create-react-app.dev/docs/deployment/#github-pages and https://github.com/rafgraph/spa-github-pages
