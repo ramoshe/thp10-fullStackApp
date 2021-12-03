@@ -25,7 +25,7 @@ export const Provider = (props) => {
 
     // Method that authenticates user and persists their info in global state
     const signIn = async (emailAddress, password) => {
-        const user = await data.getUser(emailAddress, password);
+        const { user } = await data.getUser(emailAddress, password);
         if (user !== null) {
             user.password = password;
             setAuthUser(user);
