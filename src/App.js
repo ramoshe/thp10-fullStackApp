@@ -17,7 +17,7 @@ import UnhandledError from './Components/UnhandledError'
 
 function App() {
     return (
-        <BrowserRouter forceRefresh={true} basename='/thp10-fullStackApp'>
+        <BrowserRouter /*forceRefresh={true}*/ basename='/thp10-fullStackApp'>
             <Header />
             <Switch>
                 <Route exact path="/" component={Courses} />

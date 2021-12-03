@@ -49,7 +49,7 @@ const UpdateCourse = () => {
     const cancel = () => {
         history.push(`/courses/${id}`);
     };
-console.log(validCourseIDs);    
+        
     // If the course is an empty object, redirect to "Not Found"
     if (!validCourseIDs.includes(parseInt(id))) {
         return <Redirect to="/notfound" />;

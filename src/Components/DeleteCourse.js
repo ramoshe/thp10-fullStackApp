@@ -1,7 +1,7 @@
 /**
  * This component deletes the course ONLY if the user is the owner
  */
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { Context } from '../Context';
 import { useParams, Redirect, useLocation } from 'react-router-dom';
 
