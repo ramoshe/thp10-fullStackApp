@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# For Changes to the Live App
+ 1. Make any necessary edits/updates to the files in this `forghpgs` branch
+ 2. In the terminal, use `npm run deploy` (this will create the `build` folder and copy its files to the `gh-pages` branch)
+ 3. Add the **Redirect Script** code below to the `index.html` file, just before the closing `</head>` tag
+ 4. Create a new file called `404.html` and paste in the code below
+ 5. Now the app should load properly at https://g.ramoshe.com/thp10-fullStackApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ ## Redirect Script
+ ```
+ <script type="text/javascript">
+   (function(l) {
+     if (l.search[1] === '/' ) {
+       var decoded = l.search.slice(1).split('&').map(function(s) { 
+         return s.replace(/~and~/g, '&')
+       }).join('?');
+       window.history.replaceState(null, null,
+           l.pathname.slice(0, -1) + decoded + l.hash
+       );
+     }
+   }(window.location))
+ </script>
+ ```
 
-## Available Scripts
+ ## 404.html File
+ ```
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8">
+     <title>Skills Academy Courses</title>
+     <script type="text/javascript">
+       var pathSegmentsToKeep = 1;
+       var l = window.location;
+       l.replace(
+         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+         l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+         l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+         (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+         l.hash
+       );
+     </script>
+   </head>
+   <body>
+   </body>
+ </html>
+ ```
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Sources
+These instructions are based on the information found at https://create-react-app.dev/docs/deployment/#github-pages and https://github.com/rafgraph/spa-github-pages
