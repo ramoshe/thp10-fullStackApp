@@ -27,7 +27,7 @@ header nav a {
 
 .course--module {
     background: #2F6690;
-    box-shadow: 3px 3px 7px black;
+    box-shadow: 3px 3px 7px #494949;
 }
 
 .course--add--module {
@@ -58,6 +58,7 @@ input, textarea {
 
 .button {
     background: #2F6690;
+    white-space: nowrap;
 }
 .button:not(.button-secondary):hover {
     background: #3A7CA5
