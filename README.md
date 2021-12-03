@@ -1,5 +1,12 @@
-# For Changes to the Live App
- 1. Make any necessary edits/updates to the files in this `forghpgs` branch
+# How to Run App Locally
+1. Download the zip file here: https://github.com/ramoshe/thp10-fullStackApp/archive/refs/heads/main.zip
+2. Decompress files and open folder in terminal/console
+3. Run `npm install` to install the app dependencies
+4. Run `npm start` to make the app live at http://localhost.com/thp10-fullStackApp
+
+# How to Make Changes to Live App
+*Note: these instructions only work for the repository owner*
+ 1. Make any necessary edits/updates to the files in this `forghpgs` branch (be sure to push all changes)
  2. In the terminal, use `npm run deploy` (this will create the `build` folder and copy its files to the `gh-pages` branch)
  3. Add the **Redirect Script** code below to the `index.html` file, just before the closing `</head>` tag
  4. Create a new file called `404.html` and paste in the code below
