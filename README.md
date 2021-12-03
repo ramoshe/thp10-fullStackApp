@@ -1,45 +1,70 @@
-# FSJS Project 10: Full Stack App with React and a REST API
+# Getting Started with Create React App
 
-## How To Use
- - You can view a live version of this project here: https://g.ramoshe.com/thp10-fullStackApp
-/
- - If you want a local copy of the project:
-    1. Download the files: https://github.com/ramoshe/thp10-fullStackApp
-/archive/refs/heads/main.zip
-    2. In the terminal, navigate to the `api` folder
-    3. Run `npm install` then `npm run seed` and then `npm start` 
-    4. In a separate terminal, navigate to the `client` folder and
-    5. Run `npm install` and then `npm start`
-    6. In your browser, go to http://localhost:3000/
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Git Subtree for the API
-The API contained in the `api` folder is another repo that has been added to this repo as a subtree.
-You can see the original API repo here: https://github.com/ramoshe/thp9-RESTAPI
+## Available Scripts
 
-### How to Manage Subtree
-To pull in new commits from the original repo, run this command:
-`git subtree pull --prefix api https://github.com/ramoshe/thp9-RESTAPI.git main --squash`
+In the project directory, you can run:
 
-Any chages in the `api` directory will be stored in this repo's logs only. In order to update the original repo, run this command:
-`git subtree push --prefix api https://github.com/ramoshe/thp9-RESTAPI.git main --squash`
+### `npm start`
 
-## Project Description
-*From Treehouse*
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-In your final project, you’ll use React to create a client for your existing school database REST API (that you created in a previous project). The full stack application will provide a way for users to administer a school database containing information about courses: users can interact with the database by retrieving a list of courses, viewing detail for a specific course, as well as creating, updating and deleting courses in the database.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-In addition, the project will require users to create an account and sign in to make changes to the database. Implementing these features will push your React skills to new heights.
+### `npm test`
 
-To complete this project, you’ll use your knowledge of React, JSX, React Router, React Context API, and Create React App.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-After using the Create React App tool to set up your initial project, you'll:
+### `npm run build`
 
-Use JavaScript and JSX to build out the components for your application in a modular fashion.
-Use React Router to set up your routes.
-Use the Fetch API or a tool like Axios to fetch data from your REST API.
-Allow users to sign up and use basic authentication to support users signing in.
-Add to the supplied CSS to personalize the project.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Notes
-Favicon from https://favicon.io/emoji-favicons/bookmark
-Color pallette generated using Coolors https://coolors.co/16425b-235476-2f6690-3a7ca5-5ea0be-81c3d7-add0d7-f0ead5-cd5700
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

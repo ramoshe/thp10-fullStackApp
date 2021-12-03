@@ -4,7 +4,7 @@
  */
 export default class Data {
     api(path, method='GET', body=null, requiresAuth=false, credentials=null) {
-        const url = 'http://localhost:5000/api' + path;
+        const url = 'https://thp9-restapi.herokuapp.com/api' + path;
 
         const options = {
             method,
@@ -52,7 +52,7 @@ export default class Data {
     async getAllCourses() {
         const response = await this.api(`/courses`, 'GET');
         if (response.status === 200) {
-            return response.json().then(data => data).catch(err => console.log(err));
+            return response.json().then(data => data.courses).catch(err => console.log(err));
         } else if (response.status === 400) {
             return null;
         } else {
@@ -63,7 +63,7 @@ export default class Data {
     async getCourse(id) {
         const response = await this.api(`/courses/${id}`, 'GET');
         if (response.status === 200) {
-            return response.json().then(data => data).catch(err => console.log(err));
+            return response.json().then(data => data.course).catch(err => console.log(err));
         } else if (response.status === 400) {
             return null;
         } else {
