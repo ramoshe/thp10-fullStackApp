@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/thp10-fullStackApp/static/css/main.26bdadae.chunk.css",
-    "main.js": "/thp10-fullStackApp/static/js/main.65b6e278.chunk.js",
-    "main.js.map": "/thp10-fullStackApp/static/js/main.65b6e278.chunk.js.map",
+    "main.js": "/thp10-fullStackApp/static/js/main.0cbd24e6.chunk.js",
+    "main.js.map": "/thp10-fullStackApp/static/js/main.0cbd24e6.chunk.js.map",
     "runtime-main.js": "/thp10-fullStackApp/static/js/runtime-main.38663c57.js",
     "runtime-main.js.map": "/thp10-fullStackApp/static/js/runtime-main.38663c57.js.map",
     "static/js/2.8ee4d759.chunk.js": "/thp10-fullStackApp/static/js/2.8ee4d759.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.38663c57.js",
     "static/js/2.8ee4d759.chunk.js",
     "static/css/main.26bdadae.chunk.css",
-    "static/js/main.65b6e278.chunk.js"
+    "static/js/main.0cbd24e6.chunk.js"
   ]
 }
