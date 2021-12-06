@@ -34,7 +34,7 @@ header nav a {
     background: #81C3D7;
     color: #235476;
     box-shadow: none;
-    box-shadow: 3px 3px 7px #707070;
+    box-shadow: 3px 3px 7px #919191;
 }
 
 .course--add--title .add {
@@ -80,6 +80,6 @@ input:focus, button:focus, .button:focus, textarea:focus {
     outline: 2px solid #16425B;
 }
 
-.actions--bar.button {
+.actions--bar .button {
     white-space: nowrap;
 }
