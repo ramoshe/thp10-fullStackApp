@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/thp10-fullStackApp/static/css/main.b730a0db.chunk.css",
+    "main.css": "/thp10-fullStackApp/static/css/main.1c1e6131.chunk.css",
     "main.js": "/thp10-fullStackApp/static/js/main.b055e580.chunk.js",
     "main.js.map": "/thp10-fullStackApp/static/js/main.b055e580.chunk.js.map",
     "runtime-main.js": "/thp10-fullStackApp/static/js/runtime-main.238ac04b.js",
@@ -10,13 +10,13 @@
     "static/js/3.df293ff1.chunk.js": "/thp10-fullStackApp/static/js/3.df293ff1.chunk.js",
     "static/js/3.df293ff1.chunk.js.map": "/thp10-fullStackApp/static/js/3.df293ff1.chunk.js.map",
     "index.html": "/thp10-fullStackApp/index.html",
-    "static/css/main.b730a0db.chunk.css.map": "/thp10-fullStackApp/static/css/main.b730a0db.chunk.css.map",
+    "static/css/main.1c1e6131.chunk.css.map": "/thp10-fullStackApp/static/css/main.1c1e6131.chunk.css.map",
     "static/js/2.747e61c5.chunk.js.LICENSE.txt": "/thp10-fullStackApp/static/js/2.747e61c5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.238ac04b.js",
     "static/js/2.747e61c5.chunk.js",
-    "static/css/main.b730a0db.chunk.css",
+    "static/css/main.1c1e6131.chunk.css",
     "static/js/main.b055e580.chunk.js"
   ]
 }
