@@ -14,25 +14,28 @@ import DeleteCourse from './Components/DeleteCourse';
 import NotFound from './Components/NotFound';
 import Forbidden from './Components/Forbidden';
 import UnhandledError from './Components/UnhandledError'
+import ErrorBoundary from './Components/ErrorBoundary';
 
 function App() {
     return (
         <BrowserRouter /*forceRefresh={true}*/ basename='/thp10-fullStackApp'>
-            <Header />
-            <Switch>
-                <Route exact path="/" component={Courses} />
-                <PrivateRoute path="/courses/create" component={CreateCourse} />
-                <PrivateRoute path="/courses/:id/update" component={UpdateCourse} />
-                <PrivateRoute path="/courses/:id/delete" component={DeleteCourse} />
-                <Route path="/courses/:id" component={CourseDetail} /> 
-                <Route path="/signin" component={UserSignIn} />
-                <Route path="/signup" component={UserSignUp} />
-                <Route path="/signout" component={UserSignOut} />
-                <Route path="/notfound" component={NotFound} />
-                <Route path="/forbidden" component={Forbidden} />
-                <Route path="/error" component={UnhandledError} />
-                <Route component={NotFound} />
-            </Switch>
+            <ErrorBoundary>
+                <Header />
+                <Switch>
+                    <Route exact path="/" component={Courses} />
+                    <PrivateRoute path="/courses/create" component={CreateCourse} />
+                    <PrivateRoute path="/courses/:id/update" component={UpdateCourse} />
+                    <PrivateRoute path="/courses/:id/delete" component={DeleteCourse} />
+                    <Route path="/courses/:id" component={CourseDetail} /> 
+                    <Route path="/signin" component={UserSignIn} />
+                    <Route path="/signup" component={UserSignUp} />
+                    <Route path="/signout" component={UserSignOut} />
+                    <Route path="/notfound" component={NotFound} />
+                    <Route path="/forbidden" component={Forbidden} />
+                    <Route path="/error" component={UnhandledError} />
+                    <Route component={NotFound} />
+                </Switch>
+            </ErrorBoundary>
         </BrowserRouter>
     );
 }
