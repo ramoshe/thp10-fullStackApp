@@ -1,4 +1,6 @@
-# For Changes to the Live App
+This branch contains only the client app files for live deployment of the app to GitHub Pages. It is connected to the API (Project 9) hosted on Heroku.
+
+# How To Make Changes to the Live App
  1. Make any necessary edits/updates to the files in this `forghpgs` branch
  2. In the terminal, use `npm run deploy` (this will create the `build` folder and copy its files to the `gh-pages` branch)
  3. Add the **Redirect Script** code below to the `index.html` file, just before the closing `</head>` tag
